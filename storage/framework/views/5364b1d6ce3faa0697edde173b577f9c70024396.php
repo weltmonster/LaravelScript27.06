@@ -103,9 +103,9 @@
     }
     
 </style>
-@php
+<?php
     $name = Auth::user()->name;
-@endphp
+?>
 <div id="kt_header" class="header container-xxl">
     <!--begin::Container-->
     <div class="d-flex flex-stack flex-grow-1 gap-1" id="kt_header_container">
@@ -114,7 +114,7 @@
             data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#"',
             lg: ' #kt_header_container' }">
             <!--begin::Heading-->
-            <h1 class="d-flex text-dark fw-bold my-0 fs-1">@yield('pageTitle')@yield('shopButton')
+            <h1 class="d-flex text-dark fw-bold my-0 fs-1"><?php echo $__env->yieldContent('pageTitle'); ?><?php echo $__env->yieldContent('shopButton'); ?>
                 <!-- <small class="text-muted fs-6 fw-semibold ms-1 pt-1">You’ve got 24 New Sales</small> -->
             </h1>
             <!--end::Heading-->
@@ -1030,8 +1030,9 @@
                         id="unread-data" onclick="readNotification()">
                         <a href="#" class="notification">
                             <span
-                                style="vertical-align: inherit; margin-top: -13px; margin-left: 11px; color:red; position: absolute;">{{ Session::put('read', App\Models\Notification::count()) }}
-                                <!-- <span id="unsetread">{{ Session::get('read') }} </span> -->
+                                style="vertical-align: inherit; margin-top: -13px; margin-left: 11px; color:red; position: absolute;"><?php echo e(Session::put('read', App\Models\Notification::count())); ?>
+
+                                <!-- <span id="unsetread"><?php echo e(Session::get('read')); ?> </span> -->
                                 <!-- <span id="unsetread"><span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span></span> -->
 
                             </span>
@@ -1050,26 +1051,26 @@
                             }
                             ?>
 
-                            @if ($notification)
-                                @foreach ($notification as $value)
-                                    @if ($value->readed != 'true')
+                            <?php if($notification): ?>
+                                <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($value->readed != 'true'): ?>
                                         <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
 
-                            @if ($data)
-                                @foreach ($data as $value)
-                                    @if ($value->read_status != true)
+                            <?php if($data): ?>
+                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php if($value->read_status != true): ?>
                                         <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
+                                    <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
 
-                            @if ($unreadNotification > 0)
+                            <?php if($unreadNotification > 0): ?>
                                 <span
                                     class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink notificationBlink"></span>
-                            @endif
+                            <?php endif; ?>
 
 
 
@@ -1100,9 +1101,9 @@
             </div>
             <div class="profile_say">
 
-                <img src="{{ url('public/asset/images/user.png') }}" class="user_img">
+                <img src="<?php echo e(url('public/asset/images/user.png')); ?>" class="user_img">
 
-                <p class="uname">{{ $name }} <svg width="19" height="20" viewBox="0 0 19 20"
+                <p class="uname"><?php echo e($name); ?> <svg width="19" height="20" viewBox="0 0 19 20"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.50001 13.167C9.81667 13.167 10.1333 13.0087 10.2917 12.8503L15.5167 7.62533C15.9917 7.15033 15.9917 6.35866 15.5167 5.88366C15.0417 5.40866 14.25 5.40866 13.775 5.88366L9.50001 10.1587L5.22501 5.88366C4.75001 5.40866 3.95834 5.40866 3.48334 5.88366C3.00834 6.35866 3.00834 7.15032 3.48334 7.62532L8.55001 12.692C8.86667 13.0087 9.18334 13.167 9.50001 13.167Z"
@@ -1122,8 +1123,8 @@
                         <div class="modal-body hideItemDataWithCondition"
                             style="padding-top: 25px !important; text-align: center;overflow: scroll;">
 
-                            @if (count($notifications) > 0 || count($data) > 0)
-                                @foreach ($notifications as $item)
+                            <?php if(count($notifications) > 0 || count($data) > 0): ?>
+                                <?php $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;">
                                         <!--begin::Timeline line-->
                                         <div class="timeline-line "></div>
@@ -1132,18 +1133,18 @@
                                         <!--begin::Timeline icon-->
                                         <div class="timeline-icon symbol symbol-circle symbol-40px">
                                             <div class="symbol-label bg-light beforeElement">
-                                                @if (!empty($item->type))
-                                                    @if ($item->type == 'order')
+                                                <?php if(!empty($item->type)): ?>
+                                                    <?php if($item->type == 'order'): ?>
                                                         <i class="fa fa-store text-gray-400"
                                                             style="font-size: 1.2rem;"></i>
-                                                    @else
+                                                    <?php else: ?>
                                                         <i class="fa fa-message text-gray-400"
                                                             style="font-size: 1.2rem;"></i>
-                                                    @endif
-                                                @else
+                                                    <?php endif; ?>
+                                                <?php else: ?>
                                                     <i class="fa fa-message text-gray-400"
                                                         style="font-size: 1.2rem;"></i>
-                                                @endif
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                         <!--end::Timeline icon-->
@@ -1154,22 +1155,22 @@
                                             <div class="pe-3 mb-5">
                                                 <!--begin::Title-->
                                                 <div class="fs-5 fw-semibold mb-2" style="color:#232f3e">
-                                                    @if (!empty($item->type))
-                                                        @if ($item->type == 'order')
-                                                            <p>New Order ID #{{ $item->extra_data }}</p>
-                                                        @else
-                                                            <p>{{ $item->type }}</p>
-                                                        @endif
-                                                    @else
+                                                    <?php if(!empty($item->type)): ?>
+                                                        <?php if($item->type == 'order'): ?>
+                                                            <p>New Order ID #<?php echo e($item->extra_data); ?></p>
+                                                        <?php else: ?>
+                                                            <p><?php echo e($item->type); ?></p>
+                                                        <?php endif; ?>
+                                                    <?php else: ?>
                                                         <a style="color:#232f3e"
-                                                            href="{{ url('admin/management/tickets/page/1') }}">{{ $item->subject }}</a>
-                                                    @endif
+                                                            href="<?php echo e(url('admin/management/tickets/page/1')); ?>"><?php echo e($item->subject); ?></a>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <!--end::Title-->
                                                 <!--begin::Description-->
                                                 <div class="d-flex align-items-center mt-1 fs-6">
                                                     <!--begin::Info-->
-                                                    <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div>
+                                                    <div class="text-muted me-2 fs-7"><?php echo e($item->created_at); ?></div>
                                                     <!--end::Info-->
                                                 </div>
                                                 <!--end::Description-->
@@ -1179,52 +1180,52 @@
 
                                         <!--end::Timeline content-->
                                     </div>
-                                @endforeach
-                                {{--                              @foreach ($data as $item) --}}
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                
 
-                                {{--                                  <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;"> --}}
-                                {{--                                      <!--begin::Timeline line--> --}}
-                                {{--                                      <div class="timeline-line "></div> --}}
-                                {{--                                      <!--end::Timeline line--> --}}
+                                
+                                
+                                
+                                
 
-                                {{--                                      <!--begin::Timeline icon--> --}}
-                                {{--                                      <div class="timeline-icon symbol symbol-circle symbol-40px"> --}}
-                                {{--                                          <div class="symbol-label bg-light beforeElement"> --}}
-                                {{--                                              <i class="fa fa-message text-gray-400" style="font-size: 1.2rem;"></i> --}}
-                                {{--                                          </div> --}}
-                                {{--                                      </div> --}}
-                                {{--                                      <!--end::Timeline icon--> --}}
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 
-                                {{--                                      <!--begin::Timeline content--> --}}
-                                {{--                                      <div class="timeline-content mt-n1"> --}}
-                                {{--                                          <!--begin::Timeline heading--> --}}
-                                {{--                                          <div class="pe-3 mb-5"> --}}
-                                {{--                                              <!--begin::Title--> --}}
-                                {{--                                              <div class="fs-5 fw-semibold mb-2"> --}}
-                                {{--                                                  <a style="color:#232f3e" href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Title--> --}}
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 
-                                {{--                                                  <!--begin::Description--> --}}
-                                {{--                                              <div class="d-flex align-items-center mt-1 fs-6"> --}}
-                                {{--                                                  <!--begin::Info--> --}}
-                                {{--                                                  <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div> --}}
-                                {{--                                                  <!--end::Info--> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Description--> --}}
-                                {{--                                          </div> --}}
-                                {{--                                          <!--end::Timeline heading--> --}}
-                                {{--                                      </div> --}}
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 
-                                {{--                                      <!--end::Timeline content--> --}}
-                                {{--                                  </div> --}}
+                                
+                                
 
-                                {{--                              @endforeach --}}
-                            @else
+                                
+                            <?php else: ?>
                                 <div class="fs-5 fw-semibold mb-2">No new Notification</div>
-                                {{-- <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" style="max-width: 180px;"> --}}
+                                
 
-                            @endif
+                            <?php endif; ?>
                         </div>
 
 
@@ -1235,102 +1236,101 @@
                                         class="ki-duotone ki-arrow-right fs-3 text-primary"><span
                                             class="path1"></span><span class="path2"></span></i> </button>
                             </div>
-                            {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger clearNotificationBtn"  @if (count($notification) > 0) onclick="clearNotification()" @else {{'disabled'}}  @endif >Clear</button> --}}
+                            
                         </div>
                     </div>
                 </div>
             </div>
 
-            {{--            <div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-            {{--                <div class="modal-dialog"> --}}
-            {{--                    <div class="modal-content"> --}}
-            {{--                        <div class="modal-header"> --}}
-            {{--                            <h5 class="modal-title" id="exampleModalLabel">Ticket Notification</h5> --}}
-            {{--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-            {{--                        </div> --}}
-            {{--                        <div class="modal-body" style="text-align: center;"> --}}
-            {{--                            <?php $data = DB::select('SELECT * FROM lv_users_tickets ORDER BY id DESC'); ?> --}}
-            {{--                            <table class="table hideTableDatawithCondition" style="text-align: center;"> --}}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
 
-            {{--                                @if (count($data) > 0) --}}
+            
 
-            {{--                                    <thead class="removeMessage"> --}}
-            {{--                                        <tr> --}}
-            {{--                                            <th style="width: 33%">ID</th> --}}
-            {{--                                            <th style="width: 33%">Subject</th> --}}
-            {{--                                            <th style="width: auto">Create Date</th> --}}
-            {{--                                        </tr> --}}
-            {{--                                    </thead> --}}
-            {{--                                    <tbody class="removeMessage"> --}}
+            
+            
+            
+            
+            
+            
+            
+            
 
-            {{--                                        @foreach ($data as $item) --}}
-            {{--                                        <tr> --}}
-            {{--                                            <td>{{ $item->id }}</td> --}}
-            {{--                                            <td><a href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a></td> --}}
-            {{--                                            <td>{{ $item->created_at }}</td> --}}
-            {{--                                        </tr> --}}
-            {{--                                        @endforeach --}}
-            {{--                                    </tbody> --}}
+            
+            
+            
+            
+            
+            
+            
+            
 
-            {{--                                @else --}}
+            
 
-            {{--                                    <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;"> --}}
+            
 
-            {{--                                @endif --}}
+            
 
-            {{--                            </table> --}}
-            {{--                        </div> --}}
+            
+            
 
-            {{--                        <div class="modal-footer"> --}}
-            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-            {{--                            <button type="button" class="btn btn-danger clearMessageBtn"  @if (count($data) > 0) onclick="clearMessage()" @else {{'disabled'}}  @endif > Clear</button> --}}
-            {{--                        </div> --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
+            
+            
+            
+            
+            
+            
+            
 
 
             <!--end::Activities-->
             <!--begin::Chat-->
 
-            {{--            <div class="d-flex align-items-center ms-3 ms-lg-4"> --}}
-            {{--                <!--begin::Drawer wrapper--> --}}
-            {{--                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary btn-outline w-40px h-40px position-relative" id="kt_drawer_chat_toggle"> --}}
-            {{--                    <!--begin::Svg Icon | path: icons/duotune/communication/com003.svg--> --}}
-            {{--                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModals" onclick="readMessage()"> --}}
-            {{--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> --}}
-            {{--                            <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" /> --}}
-            {{--                            <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" /> --}}
-            {{--                        </svg> --}}
-            {{--                    </span> --}}
-            {{--                    <!--end::Svg Icon--> --}}
-            {{--                    <!--begin::Bullet--> --}}
-            {{--                    <?php $data = DB::select("SELECT * FROM lv_users_tickets ORDER BY id DESC");--}}
-{{--                    $unreadMsg = 0; ?> --}}
-            {{--                    @if ($data) --}}
-            {{--                    @foreach ($data as $value) --}}
-            {{--                    @if ($value->read_status != '1') --}}
-            {{--                    <?php $unreadMsg++; ?> --}}
-            {{--                    @endif --}}
-            {{--                    @endforeach --}}
-            {{--                    @endif --}}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
-            {{--                    @if ($unreadMsg > 0) --}}
-            {{--                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink messageBlink"></span> --}}
-            {{--                    @endif --}}
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
 
 
-            {{--                    <!--end::Bullet--> --}}
-            {{--                </div> --}}
-            {{--                <!--end::Drawer wrapper--> --}}
-            {{--            </div> --}}
+            
+            
+            
+            
 
             <script>
                 function readMessage() {
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
+                    $.post("<?php echo e(url('readMessage')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".messageBlink").remove();
@@ -1339,15 +1339,15 @@
                 }
 
                 function readNotification() {
-                    $.post("{{ url('readNotification') }}", {
-                        "_token": "{{ csrf_token() }}"
+                    $.post("<?php echo e(url('readNotification')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".notificationBlink").remove();
                         }
                     });
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
+                    $.post("<?php echo e(url('readMessage')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".notificationBlink").remove();
@@ -1366,8 +1366,8 @@
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            $.post("{{ url('clearMessage') }}", {
-                                "_token": "{{ csrf_token() }}"
+                            $.post("<?php echo e(url('clearMessage')); ?>", {
+                                "_token": "<?php echo e(csrf_token()); ?>"
                             }).then((response) => {
                                 if (response.status === true) {
                                     $(".clearMessageBtn").prop("disabled", true);
@@ -1394,8 +1394,8 @@
                         confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            $.post("{{ url('clearNotification') }}", {
-                                "_token": "{{ csrf_token() }}"
+                            $.post("<?php echo e(url('clearNotification')); ?>", {
+                                "_token": "<?php echo e(csrf_token()); ?>"
                             }).then((response) => {
                                 if (response.status === true) {
                                     $(".clearNotificationBtn").prop("disabled", true);
@@ -1572,3 +1572,4 @@
         -- >
     });
 </script>
+<?php /**PATH E:\work\Figma-Laravel\LaravelScript27.06\resources\views/backendV2/layouts/header.blade.php ENDPATH**/ ?>

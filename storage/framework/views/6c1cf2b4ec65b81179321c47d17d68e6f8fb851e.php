@@ -1,12 +1,10 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-    .beforeElement {
+    .beforeElement{
         z-index: 99;
         position: relative;
     }
-
-    .beforeElement:before {
+    .beforeElement:before{
         content: "";
         width: 0px;
         height: 100%;
@@ -19,102 +17,98 @@
         border-width: 1px;
     }
 
-    .noMessage {
+    .noMessage{
         padding: 0;
         margin: 0 !important;
         text-align: center;
         color: gray !important;
         font-weight: 400;
     }
-
     .profile_say {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        gap: 14px;
-    }
-
-    :root p.uname {
-        margin-bottom: 0px;
-    }
-
-    .d-flex.align-items-center.ms-3.ms-lg-4.bloc_gap {
-        gap: 10px;
-        margin-right: 14px;
-    }
-
-
-    @media (min-width: 1400px) {
-        #kt_wrapper {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 14px;
+        }
+        :root p.uname {
+            margin-bottom: 0px;
+        }
+        .d-flex.align-items-center.ms-3.ms-lg-4.bloc_gap {
+            gap: 10px;
+            margin-right: 14px;
+        }
+        
+        
+    @media (min-width: 1400px){
+        #kt_wrapper{
             padding-right: 0px !important;
         }
     }
 
-    .notif {
+    .notif{
         width: 50vw;
-        position: fixed;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        height: 100vh;
-        border-radius: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    border-radius: 0;
     }
 
     .custom-modal.fade .modal-dialog {
         transform: none;
     }
-
-
+    
+    
     div#kt_header_container {
-        max-width: 1920px;
-    }
-
+    max-width: 1920px;
+}
+    
     h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
-        font-size: 38px !important;
-    }
-
+    font-size: 38px !important;
+}
     /*-------------------------------------------------------------------------*/
-    @media (max-width: 1440px) {}
-
+    @media (max-width: 1440px){
+        
+    }
     .text-dark {
-        color: var(--kt-text-dark) !important;
+        color: var(--kt-text-dark)!important;
         font-size: 1.5rem !important;
         align-items: center !important;
     }
-
+    
     /*p.uname {*/
     /*    display: none;*/
     /*}*/
 
 
     :root a.btn.btn-primary {
-        background-color: #D3F56A !important;
-        color: #172C00 !important;
-        font-weight: 500 !important;
-        font-size: 20px;
-        line-height: 16px !important;
-        padding: 20px 20px !important;
-    }
+    background-color: #D3F56A !important;
+    color: #172C00 !important;
+    font-weight: 500 !important;
+    font-size: 20px;
+    line-height: 16px !important;
+    padding: 20px 20px !important;
+}
 
     :root .page-title.d-flex.flex-column.align-items-start.justify-content-center.flex-wrap.me-lg-2.pb-5.pb-lg-0 h1 {
         flex-direction: row !important;
         text-align: center !important;
         align-items: center !important;
     }
-    
+}
+
 </style>
-@php
-    $name = Auth::user()->name;
-@endphp
-<div id="kt_header" class="header container-xxl">
+<?php
+            $name = Auth::user()->name;
+            ?>
+<div id="kt_header" class="header">
     <!--begin::Container-->
-    <div class="d-flex flex-stack flex-grow-1 gap-1" id="kt_header_container">
+    <div class="container d-flex flex-stack  gap-1" id="kt_header_container">
         <!--begin::Page title-->
-        <div class="page-title d-flex align-items-start justify-content-center flex-wrap me-lg-2 pb-5 pb-lg-0"
-            data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#"',
-            lg: ' #kt_header_container' }">
+        <div class="page-title d-flex align-items-start justify-content-center flex-wrap me-lg-2 pb-5 pb-lg-0" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#"', lg: ' #kt_header_container'}">
             <!--begin::Heading-->
-            <h1 class="d-flex text-dark fw-bold my-0 fs-1">@yield('pageTitle')@yield('shopButton')
+            <h1 class="d-flex text-dark fw-bold my-0 fs-1"><?php echo $__env->yieldContent('pageTitle'); ?><?php echo $__env->yieldContent('shopButton'); ?>
                 <!-- <small class="text-muted fs-6 fw-semibold ms-1 pt-1">You’ve got 24 New Sales</small> -->
             </h1>
             <!--end::Heading-->
@@ -126,32 +120,24 @@
             <div class="btn btn-icon btn-active-icon-primary" id="kt_aside_toggle">
                 <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                 <span class="svg-icon svg-icon-1 mt-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
-                            fill="currentColor" />
-                        <path opacity="0.3"
-                            d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
-                            fill="currentColor" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z" fill="currentColor" />
+                        <path opacity="0.3" d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z" fill="currentColor" />
                     </svg>
                 </span>
                 <!--end::Svg Icon-->
             </div>
             <!--end::Aside mobile toggle-->
-
+            
         </div>
         <!--end::Wrapper-->
         <!--begin::Topbar-->
         <div class="d-flex align-items-center flex-shrink-0">
             <!--begin::Search-->
-            <div id="kt_header_search" class="header-search d-flex align-items-center w-lg-250px"
-                data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter"
-                data-kt-search-layout="menu" data-kt-search-responsive="lg" data-kt-menu-trigger="auto"
-                data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
-
+            <div id="kt_header_search" class="header-search d-flex align-items-center w-lg-250px" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="menu" data-kt-search-responsive="lg" data-kt-menu-trigger="auto" data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
+                
                 <!--begin::Form(use d-none d-lg-flex classes for responsive search)-->
-                <form data-kt-search-element="form"
-                    class="d-none align-items-center d-lg-flex w-100 mb-5 mb-lg-0 position-relative" autocomplete="off">
+                <form data-kt-search-element="form" class="d-none align-items-center d-lg-flex w-100 mb-5 mb-lg-0 position-relative" autocomplete="off">
                     <!--begin::Hidden input(Added to disable form autocomplete)-->
                     <input type="hidden" />
                     <!--end::Hidden input-->
@@ -169,23 +155,17 @@
                     <!-- <input type="text" class="form-control bg-transparent ps-13 fs-7 h-40px" name="search" value="" placeholder="Quick Search" data-kt-search-element="input" /> -->
                     <!--end::Input-->
                     <!--begin::Spinner-->
-                    <span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5"
-                        data-kt-search-element="spinner">
+                    <span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
                         <span class="spinner-border h-15px w-15px align-middle text-gray-400"></span>
                     </span>
                     <!--end::Spinner-->
                     <!--begin::Reset-->
-                    <span
-                        class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-4"
-                        data-kt-search-element="clear">
+                    <span class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-4" data-kt-search-element="clear">
                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
                         <span class="svg-icon svg-icon-2 svg-icon-lg-1 me-0">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
-                                    rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
-                                    transform="rotate(45 7.41422 6)" fill="currentColor" />
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor" />
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
@@ -194,8 +174,7 @@
                 </form>
                 <!--end::Form-->
                 <!--begin::Menu-->
-                <div data-kt-search-element="content"
-                    class="menu menu-sub menu-sub-dropdown w-300px w-md-350px py-7 px-7 overflow-hidden">
+                <div data-kt-search-element="content" class="menu menu-sub menu-sub-dropdown w-300px w-md-350px py-7 px-7 overflow-hidden">
                     <!--begin::Wrapper-->
                     <div data-kt-search-element="wrapper">
                         <!--begin::Recently viewed-->
@@ -289,9 +268,7 @@
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
-                                            <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/brand-logos/volicity-9.svg"
-                                                alt="" />
+                                            <img class="w-20px h-20px" src="adminV2/assets/media/svg/brand-logos/volicity-9.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -308,8 +285,7 @@
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
-                                            <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/brand-logos/tvit.svg" alt="" />
+                                            <img class="w-20px h-20px" src="adminV2/assets/media/svg/brand-logos/tvit.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -326,8 +302,7 @@
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
-                                            <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/misc/infography.svg" alt="" />
+                                            <img class="w-20px h-20px" src="adminV2/assets/media/svg/misc/infography.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -344,8 +319,7 @@
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
-                                            <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/brand-logos/leaf.svg" alt="" />
+                                            <img class="w-20px h-20px" src="adminV2/assets/media/svg/brand-logos/leaf.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -362,8 +336,7 @@
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
-                                            <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/brand-logos/tower.svg" alt="" />
+                                            <img class="w-20px h-20px" src="adminV2/assets/media/svg/brand-logos/tower.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -386,19 +359,12 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3"
-                                                        d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z"
-                                                        fill="currentColor" />
-                                                    <rect x="7" y="17" width="6"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="7" y="12" width="10"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="7" y="7" width="6"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z" fill="currentColor" />
+                                                    <rect x="7" y="17" width="6" height="2" rx="1" fill="currentColor" />
+                                                    <rect x="7" y="12" width="10" height="2" rx="1" fill="currentColor" />
+                                                    <rect x="7" y="7" width="6" height="2" rx="1" fill="currentColor" />
+                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -420,17 +386,11 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="8" y="9" width="3"
-                                                        height="10" rx="1.5" fill="currentColor" />
-                                                    <rect opacity="0.5" x="13" y="5"
-                                                        width="3" height="14" rx="1.5"
-                                                        fill="currentColor" />
-                                                    <rect x="18" y="11" width="3"
-                                                        height="8" rx="1.5" fill="currentColor" />
-                                                    <rect x="3" y="13" width="3"
-                                                        height="6" rx="1.5" fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="8" y="9" width="3" height="10" rx="1.5" fill="currentColor" />
+                                                    <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="currentColor" />
+                                                    <rect x="18" y="11" width="3" height="8" rx="1.5" fill="currentColor" />
+                                                    <rect x="3" y="13" width="3" height="6" rx="1.5" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -452,15 +412,10 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3"
-                                                        d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z"
-                                                        fill="currentColor" />
-                                                    <rect x="6" y="12" width="7"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="6" y="7" width="12"
-                                                        height="2" rx="1" fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z" fill="currentColor" />
+                                                    <rect x="6" y="12" width="7" height="2" rx="1" fill="currentColor" />
+                                                    <rect x="6" y="7" width="12" height="2" rx="1" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -482,16 +437,10 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="18" height="18" viewBox="0 0 18 18"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3"
-                                                        d="M16.5 9C16.5 13.125 13.125 16.5 9 16.5C4.875 16.5 1.5 13.125 1.5 9C1.5 4.875 4.875 1.5 9 1.5C13.125 1.5 16.5 4.875 16.5 9Z"
-                                                        fill="currentColor" />
-                                                    <path
-                                                        d="M9 16.5C10.95 16.5 12.75 15.75 14.025 14.55C13.425 12.675 11.4 11.25 9 11.25C6.6 11.25 4.57499 12.675 3.97499 14.55C5.24999 15.75 7.05 16.5 9 16.5Z"
-                                                        fill="currentColor" />
-                                                    <rect x="7" y="6" width="4"
-                                                        height="4" rx="2" fill="currentColor" />
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M16.5 9C16.5 13.125 13.125 16.5 9 16.5C4.875 16.5 1.5 13.125 1.5 9C1.5 4.875 4.875 1.5 9 1.5C13.125 1.5 16.5 4.875 16.5 9Z" fill="currentColor" />
+                                                    <path d="M9 16.5C10.95 16.5 12.75 15.75 14.025 14.55C13.425 12.675 11.4 11.25 9 11.25C6.6 11.25 4.57499 12.675 3.97499 14.55C5.24999 15.75 7.05 16.5 9 16.5Z" fill="currentColor" />
+                                                    <rect x="7" y="6" width="4" height="4" rx="2" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -520,35 +469,23 @@
                                 <!--begin::Toolbar-->
                                 <div class="d-flex" data-kt-search-element="toolbar">
                                     <!--begin::Preferences toggle-->
-                                    <div data-kt-search-element="preferences-show"
-                                        class="btn btn-icon w-20px btn-sm btn-active-color-primary me-2 data-bs-toggle="
-                                        title="Show search preferences">
+                                    <div data-kt-search-element="preferences-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary me-2 data-bs-toggle=" title="Show search preferences">
                                         <!--begin::Svg Icon | path: icons/duotune/coding/cod001.svg-->
                                         <span class="svg-icon svg-icon-1">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path opacity="0.3"
-                                                    d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z"
-                                                    fill="currentColor" />
-                                                <path
-                                                    d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z"
-                                                    fill="currentColor" />
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path opacity="0.3" d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z" fill="currentColor" />
+                                                <path d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z" fill="currentColor" />
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->
                                     </div>
                                     <!--end::Preferences toggle-->
                                     <!--begin::Advanced search toggle-->
-                                    <div data-kt-search-element="advanced-options-form-show"
-                                        class="btn btn-icon w-20px btn-sm btn-active-color-primary me-n1"
-                                        data-bs-toggle="tooltip" title="Show more search options">
+                                    <div data-kt-search-element="advanced-options-form-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary me-n1" data-bs-toggle="tooltip" title="Show more search options">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                         <span class="svg-icon svg-icon-2">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z"
-                                                    fill="currentColor" />
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
                                             </svg>
                                         </span>
                                         <!--end::Svg Icon-->
@@ -567,16 +504,10 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/electronics/elc004.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M2 16C2 16.6 2.4 17 3 17H21C21.6 17 22 16.6 22 16V15H2V16Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M21 3H3C2.4 3 2 3.4 2 4V15H22V4C22 3.4 21.6 3 21 3Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3" d="M15 17H9V20H15V17Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 16C2 16.6 2.4 17 3 17H21C21.6 17 22 16.6 22 16V15H2V16Z" fill="currentColor" />
+                                                    <path opacity="0.3" d="M21 3H3C2.4 3 2 3.4 2 4V15H22V4C22 3.4 21.6 3 21 3Z" fill="currentColor" />
+                                                    <path opacity="0.3" d="M15 17H9V20H15V17Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -585,8 +516,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
                                             Keenthemes</a>
                                         <span class="fs-7 text-muted fw-semibold">#45789</span>
                                     </div>
@@ -600,14 +530,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra001.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3"
-                                                        d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z"
-                                                        fill="currentColor" />
-                                                    <path
-                                                        d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z" fill="currentColor" />
+                                                    <path d="M21 20H20V8C20 7.4 19.6 7 19 7H17C16.4 7 16 7.4 16 8V20H3C2.4 20 2 20.4 2 21C2 21.6 2.4 22 3 22H21C21.6 22 22 21.6 22 21C22 20.4 21.6 20 21 20Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -616,8 +541,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
                                             Project Meeting</a>
                                         <span class="fs-7 text-muted fw-semibold">#84050</span>
                                     </div>
@@ -631,14 +555,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z" fill="currentColor" />
+                                                    <path opacity="0.3" d="M19.1 17.0152C19.7 17.3152 19.8 18.1152 19.3 18.5152C17.5 20.5152 14.9 21.7152 12 21.7152C9.1 21.7152 6.50001 20.5152 4.70001 18.5152C4.30001 18.0152 4.39999 17.3152 4.89999 17.0152L7.39999 15.6152C8.49999 16.9152 10.2 17.8152 12 17.8152C13.8 17.8152 15.5 17.0152 16.6 15.6152L19.1 17.0152ZM6.39999 13.9151C6.19999 13.2151 6 12.5152 6 11.8152C6 8.81517 8.2 6.41515 11 5.91515V3.01519C11 2.41519 10.4 1.91519 9.79999 2.01519C5.29999 3.01519 2 7.01517 2 11.8152C2 12.8152 2.2 13.8152 2.5 14.8152C2.7 15.4152 3.4 15.7152 4 15.3152L6.39999 13.9151Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -647,8 +566,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
                                             Monitoring App Launch</a>
                                         <span class="fs-7 text-muted fw-semibold">#84250</span>
                                     </div>
@@ -662,13 +580,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra002.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z"
-                                                        fill="currentColor" />
-                                                    <path
-                                                        d="M21 18H6V3C6 2.4 5.6 2 5 2C4.4 2 4 2.4 4 3V18H3C2.4 18 2 18.4 2 19C2 19.6 2.4 20 3 20H4V21C4 21.6 4.4 22 5 22C5.6 22 6 21.6 6 21V20H21C21.6 20 22 19.6 22 19C22 18.4 21.6 18 21 18Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z" fill="currentColor" />
+                                                    <path d="M21 18H6V3C6 2.4 5.6 2 5 2C4.4 2 4 2.4 4 3V18H3C2.4 18 2 18.4 2 19C2 19.6 2.4 20 3 20H4V21C4 21.6 4.4 22 5 22C5.6 22 6 21.6 6 21V20H21C21.6 20 22 19.6 22 19C22 18.4 21.6 18 21 18Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -677,8 +591,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
                                             Reference FAQ</a>
                                         <span class="fs-7 text-muted fw-semibold">#67945</span>
                                     </div>
@@ -692,14 +605,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com010.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor" />
+                                                    <path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -708,8 +616,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
                                             App Development</a>
                                         <span class="fs-7 text-muted fw-semibold">#84250</span>
                                     </div>
@@ -723,14 +630,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/finance/fin001.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z"
-                                                        fill="currentColor" />
-                                                    <path opacity="0.3"
-                                                        d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z" fill="currentColor" />
+                                                    <path opacity="0.3" d="M22 6.725V7.725C22 8.325 21.6 8.725 21 8.725H18C18.6 8.725 19 9.125 19 9.725C19 10.325 18.6 10.725 18 10.725V15.725C18.6 15.725 19 16.125 19 16.725V17.725H15V16.725C15 16.125 15.4 15.725 16 15.725V10.725C15.4 10.725 15 10.325 15 9.725C15 9.125 15.4 8.725 16 8.725H13C13.6 8.725 14 9.125 14 9.725C14 10.325 13.6 10.725 13 10.725V15.725C13.6 15.725 14 16.125 14 16.725V17.725H10V16.725C10 16.125 10.4 15.725 11 15.725V10.725C10.4 10.725 10 10.325 10 9.725C10 9.125 10.4 8.725 11 8.725H8C8.6 8.725 9 9.125 9 9.725C9 10.325 8.6 10.725 8 10.725V15.725C8.6 15.725 9 16.125 9 16.725V17.725H5V16.725C5 16.125 5.4 15.725 6 15.725V10.725C5.4 10.725 5 10.325 5 9.725C5 9.125 5.4 8.725 6 8.725H3C2.4 8.725 2 8.325 2 7.725V6.725L11 2.225C11.6 1.925 12.4 1.925 13.1 2.225L22 6.725ZM12 3.725C11.2 3.725 10.5 4.425 10.5 5.225C10.5 6.025 11.2 6.725 12 6.725C12.8 6.725 13.5 6.025 13.5 5.225C13.5 4.425 12.8 3.725 12 3.725Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -739,8 +641,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
                                             Mobile App</a>
                                         <span class="fs-7 text-muted fw-semibold">#45690</span>
                                     </div>
@@ -754,13 +655,9 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra002.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z"
-                                                        fill="currentColor" />
-                                                    <path
-                                                        d="M21 18H6V3C6 2.4 5.6 2 5 2C4.4 2 4 2.4 4 3V18H3C2.4 18 2 18.4 2 19C2 19.6 2.4 20 3 20H4V21C4 21.6 4.4 22 5 22C5.6 22 6 21.6 6 21V20H21C21.6 20 22 19.6 22 19C22 18.4 21.6 18 21 18Z"
-                                                        fill="currentColor" />
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z" fill="currentColor" />
+                                                    <path d="M21 18H6V3C6 2.4 5.6 2 5 2C4.4 2 4 2.4 4 3V18H3C2.4 18 2 18.4 2 19C2 19.6 2.4 20 3 20H4V21C4 21.6 4.4 22 5 22C5.6 22 6 21.6 6 21V20H21C21.6 20 22 19.6 22 19C22 18.4 21.6 18 21 18Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -769,8 +666,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
                                             UI Design" Launch</a>
                                         <span class="fs-7 text-muted fw-semibold">#24005</span>
                                     </div>
@@ -787,18 +683,11 @@
                             <div class="pt-10 pb-10">
                                 <!--begin::Svg Icon | path: icons/duotune/files/fil024.svg-->
                                 <span class="svg-icon svg-icon-4x opacity-50">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path opacity="0.3"
-                                            d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
-                                            fill="currentColor" />
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.3" d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill="currentColor" />
                                         <path d="M20 8L14 2V6C14 7.10457 14.8954 8 16 8H20Z" fill="currentColor" />
-                                        <rect x="13.6993" y="13.6656" width="4.42828" height="1.73089"
-                                            rx="0.865447" transform="rotate(45 13.6993 13.6656)"
-                                            fill="currentColor" />
-                                        <path
-                                            d="M15 12C15 14.2 13.2 16 11 16C8.8 16 7 14.2 7 12C7 9.8 8.8 8 11 8C13.2 8 15 9.8 15 12ZM11 9.6C9.68 9.6 8.6 10.68 8.6 12C8.6 13.32 9.68 14.4 11 14.4C12.32 14.4 13.4 13.32 13.4 12C13.4 10.68 12.32 9.6 11 9.6Z"
-                                            fill="currentColor" />
+                                        <rect x="13.6993" y="13.6656" width="4.42828" height="1.73089" rx="0.865447" transform="rotate(45 13.6993 13.6656)" fill="currentColor" />
+                                        <path d="M15 12C15 14.2 13.2 16 11 16C8.8 16 7 14.2 7 12C7 9.8 8.8 8 11 8C13.2 8 15 9.8 15 12ZM11 9.6C9.68 9.6 8.6 10.68 8.6 12C8.6 13.32 9.68 14.4 11 14.4C12.32 14.4 13.4 13.32 13.4 12C13.4 10.68 12.32 9.6 11 9.6Z" fill="currentColor" />
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
@@ -821,8 +710,7 @@
                         <!--end::Heading-->
                         <!--begin::Input group-->
                         <div class="mb-5">
-                            <input type="text" class="form-control form-control-sm form-control-solid"
-                                placeholder="Contains the word" name="query" />
+                            <input type="text" class="form-control form-control-sm form-control-solid" placeholder="Contains the word" name="query" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
@@ -831,30 +719,26 @@
                             <div class="nav-group nav-group-fluid">
                                 <!--begin::Option-->
                                 <label>
-                                    <input type="radio" class="btn-check" name="type" value="has"
-                                        checked="checked" />
+                                    <input type="radio" class="btn-check" name="type" value="has" checked="checked" />
                                     <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">All</span>
                                 </label>
                                 <!--end::Option-->
                                 <!--begin::Option-->
                                 <label>
                                     <input type="radio" class="btn-check" name="type" value="users" />
-                                    <span
-                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Users</span>
+                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Users</span>
                                 </label>
                                 <!--end::Option-->
                                 <!--begin::Option-->
                                 <label>
                                     <input type="radio" class="btn-check" name="type" value="orders" />
-                                    <span
-                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
+                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
                                 </label>
                                 <!--end::Option-->
                                 <!--begin::Option-->
                                 <label>
                                     <input type="radio" class="btn-check" name="type" value="projects" />
-                                    <span
-                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Projects</span>
+                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Projects</span>
                                 </label>
                                 <!--end::Option-->
                             </div>
@@ -863,16 +747,12 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="mb-5">
-                            <input type="text" name="assignedto"
-                                class="form-control form-control-sm form-control-solid" placeholder="Assigned to"
-                                value="" />
+                            <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid" placeholder="Assigned to" value="" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="mb-5">
-                            <input type="text" name="collaborators"
-                                class="form-control form-control-sm form-control-solid" placeholder="Collaborators"
-                                value="" />
+                            <input type="text" name="collaborators" class="form-control form-control-sm form-control-solid" placeholder="Collaborators" value="" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
@@ -881,8 +761,7 @@
                             <div class="nav-group nav-group-fluid">
                                 <!--begin::Option-->
                                 <label>
-                                    <input type="radio" class="btn-check" name="attachment" value="has"
-                                        checked="checked" />
+                                    <input type="radio" class="btn-check" name="attachment" value="has" checked="checked" />
                                     <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">Has
                                         attachment</span>
                                 </label>
@@ -890,8 +769,7 @@
                                 <!--begin::Option-->
                                 <label>
                                     <input type="radio" class="btn-check" name="attachment" value="any" />
-                                    <span
-                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Any</span>
+                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Any</span>
                                 </label>
                                 <!--end::Option-->
                             </div>
@@ -900,8 +778,7 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="mb-5">
-                            <select name="timezone" aria-label="Select a Timezone" data-control="select2"
-                                data-placeholder="date_period" class="form-select form-select-sm form-select-solid">
+                            <select name="timezone" aria-label="Select a Timezone" data-control="select2" data-placeholder="date_period" class="form-select form-select-sm form-select-solid">
                                 <option value="next">Within the next</option>
                                 <option value="last">Within the last</option>
                                 <option value="between">Between</option>
@@ -913,15 +790,12 @@
                         <div class="row mb-8">
                             <!--begin::Col-->
                             <div class="col-6">
-                                <input type="number" name="date_number"
-                                    class="form-control form-control-sm form-control-solid" placeholder="Lenght"
-                                    value="" />
+                                <input type="number" name="date_number" class="form-control form-control-sm form-control-solid" placeholder="Lenght" value="" />
                             </div>
                             <!--end::Col-->
                             <!--begin::Col-->
                             <div class="col-6">
-                                <select name="date_typer" aria-label="Select a Timezone" data-control="select2"
-                                    data-placeholder="Period" class="form-select form-select-sm form-select-solid">
+                                <select name="date_typer" aria-label="Select a Timezone" data-control="select2" data-placeholder="Period" class="form-select form-select-sm form-select-solid">
                                     <option value="days">Days</option>
                                     <option value="weeks">Weeks</option>
                                     <option value="months">Months</option>
@@ -933,11 +807,8 @@
                         <!--end::Input group-->
                         <!--begin::Actions-->
                         <div class="d-flex justify-content-end">
-                            <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
-                                data-kt-search-element="advanced-options-form-cancel">Cancel</button>
-                            <a href="../../demo3/dist/pages/search/horizontal.html"
-                                class="btn btn-sm fw-bold btn-primary"
-                                data-kt-search-element="advanced-options-form-search">Search</a>
+                            <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="advanced-options-form-cancel">Cancel</button>
+                            <a href="../../demo3/dist/pages/search/horizontal.html" class="btn btn-sm fw-bold btn-primary" data-kt-search-element="advanced-options-form-search">Search</a>
                         </div>
                         <!--end::Actions-->
                     </form>
@@ -949,8 +820,7 @@
                         <!--end::Heading-->
                         <!--begin::Input group-->
                         <div class="pb-4 border-bottom">
-                            <label
-                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                            <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                 <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Projects</span>
                                 <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                             </label>
@@ -958,8 +828,7 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="py-4 border-bottom">
-                            <label
-                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                            <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                 <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Targets</span>
                                 <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                             </label>
@@ -967,8 +836,7 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="py-4 border-bottom">
-                            <label
-                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                            <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                 <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Affiliate
                                     Programs</span>
                                 <input class="form-check-input" type="checkbox" value="1" />
@@ -977,18 +845,15 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="py-4 border-bottom">
-                            <label
-                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                <span
-                                    class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
+                            <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                                <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
                                 <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                             </label>
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="py-4 border-bottom">
-                            <label
-                                class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+                            <label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
                                 <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Users</span>
                                 <input class="form-check-input" type="checkbox" value="1" />
                             </label>
@@ -996,8 +861,7 @@
                         <!--end::Input group-->
                         <!--begin::Actions-->
                         <div class="d-flex justify-content-end pt-7">
-                            <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2"
-                                data-kt-search-element="preferences-dismiss">Cancel</button>
+                            <button type="reset" class="btn btn-sm btn-light fw-bold btn-active-light-primary me-2" data-kt-search-element="preferences-dismiss">Cancel</button>
                             <button type="submit" class="btn btn-sm fw-bold btn-primary">Save Changes</button>
                         </div>
                         <!--end::Actions-->
@@ -1011,87 +875,70 @@
             <!-- <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='/admin/shop/logo'">Logo / Banner</button> -->
             <div class="d-flex align-items-center ms-3 ms-lg-4 bloc_gap">
                 <!--begin::Drawer toggle-->
-                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px p-2"><svg
-                        width="24" height="24" viewBox="0 0 32 32" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.6667 25.3333C20.5577 25.3333 25.3333 20.5577 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333Z"
-                            stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M28 28.0002L22.2 22.2002" stroke="white" stroke-width="3" stroke-linecap="round"
-                            stroke-linejoin="round" />
+                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px p-2"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.6667 25.3333C20.5577 25.3333 25.3333 20.5577 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 28.0002L22.2 22.2002" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                </div>
-                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px"
-                    id="kt_activities_toggle" style="position: relative;">
+                    </div>
+                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px" id="kt_activities_toggle" style="position: relative;">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen007.svg-->
 
                     <!----show notifications orders and users---->
-                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        id="unread-data" onclick="readNotification()">
+                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModal" id="unread-data" onclick="readNotification()">
                         <a href="#" class="notification">
-                            <span
-                                style="vertical-align: inherit; margin-top: -13px; margin-left: 11px; color:red; position: absolute;">{{ Session::put('read', App\Models\Notification::count()) }}
-                                <!-- <span id="unsetread">{{ Session::get('read') }} </span> -->
-                                <!-- <span id="unsetread"><span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span></span> -->
+                            <span style="vertical-align: inherit; margin-top: -13px; margin-left: 11px; color:red; position: absolute;"><?php echo e(Session::put('read', App\Models\Notification::count() )); ?>
+
+                                <!-- <span id="unsetread"><?php echo e(Session::get('read')); ?> </span> -->
+                                 <!-- <span id="unsetread"><span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span></span> -->
 
                             </span>
 
-                            <?php $notification = DB::select("SELECT * FROM lv_notifications where readed = 'false' ORDER BY created_at DESC");
-                            $unreadNotification = 0; ?>
-                            <?php $data = DB::select("SELECT * FROM lv_users_tickets where read_status = '0' ORDER BY created_at DESC");
-                            $notifications = array_merge($data, $notification);
-                            if (!empty($notifications)) {
-                                function sortFunction($a, $b)
-                                {
-                                    return strtotime($a->created_at) - strtotime($b->created_at);
-                                }
-                                usort($notifications, 'sortFunction');
-                                $notifications = array_reverse($notifications);
-                            }
-                            ?>
+                   <?php $notification = DB::select("SELECT * FROM lv_notifications where readed = 'false' ORDER BY created_at DESC"); $unreadNotification = 0; ?>
+                   <?php $data = DB::select("SELECT * FROM lv_users_tickets where read_status = '0' ORDER BY created_at DESC");
+                   $notifications = array_merge($data, $notification);
+                   if(!empty($notifications)){
+                       function sortFunction( $a, $b ) {
+                           return strtotime($a->created_at) - strtotime($b->created_at);
+                       }
+                       usort($notifications, "sortFunction");
+                       $notifications = array_reverse($notifications);
+                   }
+                   ?>
 
-                            @if ($notification)
-                                @foreach ($notification as $value)
-                                    @if ($value->readed != 'true')
-                                        <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
+                    <?php if($notification): ?>
+                        <?php $__currentLoopData = $notification; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($value->readed != "true"): ?>
+                               <?php $unreadNotification++; ?>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
 
-                            @if ($data)
-                                @foreach ($data as $value)
-                                    @if ($value->read_status != true)
-                                        <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
+                    <?php if($data): ?>
+                        <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($value->read_status != true): ?>
+                                <?php $unreadNotification++; ?>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
 
-                            @if ($unreadNotification > 0)
-                                <span
-                                    class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink notificationBlink"></span>
-                            @endif
+                    <?php if($unreadNotification > 0): ?>
+                        <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink notificationBlink"></span>
+                    <?php endif; ?>
 
 
 
                         </a>
 
                         <!----end notifications orders and users---->
-
+                       
 
                         <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8 10.667C8 8.54526 8.84286 6.51043 10.3431 5.01014C11.8434 3.50985 13.8783 2.66699 16 2.66699C18.1217 2.66699 20.1566 3.50985 21.6569 5.01014C23.1571 6.51043 24 8.54526 24 10.667C24 20.0003 28 22.667 28 22.667H4C4 22.667 8 20.0003 8 10.667Z"
-                                    stroke="white" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path
-                                    d="M13.7334 28C13.9566 28.4059 14.2847 28.7445 14.6834 28.9803C15.0821 29.216 15.5368 29.3404 16.0001 29.3404C16.4633 29.3404 16.918 29.216 17.3167 28.9803C17.7155 28.7445 18.0436 28.4059 18.2667 28"
-                                    stroke="white" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <circle cx="21.5" cy="8.5" r="7.5" fill="#DA5538" />
-                            </svg>
+                           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8 10.667C8 8.54526 8.84286 6.51043 10.3431 5.01014C11.8434 3.50985 13.8783 2.66699 16 2.66699C18.1217 2.66699 20.1566 3.50985 21.6569 5.01014C23.1571 6.51043 24 8.54526 24 10.667C24 20.0003 28 22.667 28 22.667H4C4 22.667 8 20.0003 8 10.667Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.7334 28C13.9566 28.4059 14.2847 28.7445 14.6834 28.9803C15.0821 29.216 15.5368 29.3404 16.0001 29.3404C16.4633 29.3404 16.918 29.216 17.3167 28.9803C17.7155 28.7445 18.0436 28.4059 18.2667 28" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="21.5" cy="8.5" r="7.5" fill="#DA5538"/>
+</svg>
 
                         </span>
                         <!--end::Svg Icon-->
@@ -1099,31 +946,26 @@
                 <!--end::Drawer toggle-->
             </div>
             <div class="profile_say">
+            
+              <img src="<?php echo e(url('public/asset/images/user.png')); ?>" class="user_img">
 
-                <img src="{{ url('public/asset/images/user.png') }}" class="user_img">
-
-                <p class="uname">{{ $name }} <svg width="19" height="20" viewBox="0 0 19 20"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M9.50001 13.167C9.81667 13.167 10.1333 13.0087 10.2917 12.8503L15.5167 7.62533C15.9917 7.15033 15.9917 6.35866 15.5167 5.88366C15.0417 5.40866 14.25 5.40866 13.775 5.88366L9.50001 10.1587L5.22501 5.88366C4.75001 5.40866 3.95834 5.40866 3.48334 5.88366C3.00834 6.35866 3.00834 7.15032 3.48334 7.62532L8.55001 12.692C8.86667 13.0087 9.18334 13.167 9.50001 13.167Z"
-                            fill="#7D7D7D" />
-                    </svg>
-                <p>
+              <p class="uname"><?php echo e($name); ?> <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.50001 13.167C9.81667 13.167 10.1333 13.0087 10.2917 12.8503L15.5167 7.62533C15.9917 7.15033 15.9917 6.35866 15.5167 5.88366C15.0417 5.40866 14.25 5.40866 13.775 5.88366L9.50001 10.1587L5.22501 5.88366C4.75001 5.40866 3.95834 5.40866 3.48334 5.88366C3.00834 6.35866 3.00834 7.15032 3.48334 7.62532L8.55001 12.692C8.86667 13.0087 9.18334 13.167 9.50001 13.167Z" fill="#7D7D7D"/>
+</svg>
+<p>
             </div>
-            <div class="custom-modal modal fade" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="custom-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content notif">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body hideItemDataWithCondition"
-                            style="padding-top: 25px !important; text-align: center;overflow: scroll;">
+                        <div class="modal-body hideItemDataWithCondition" style="padding-top: 25px !important; text-align: center;overflow: scroll;">
 
-                            @if (count($notifications) > 0 || count($data) > 0)
-                                @foreach ($notifications as $item)
+                        <?php if(count($notifications) > 0 || count($data) > 0): ?>
+                              <?php $__currentLoopData = $notifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                                     <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;">
                                         <!--begin::Timeline line-->
                                         <div class="timeline-line "></div>
@@ -1132,18 +974,15 @@
                                         <!--begin::Timeline icon-->
                                         <div class="timeline-icon symbol symbol-circle symbol-40px">
                                             <div class="symbol-label bg-light beforeElement">
-                                                @if (!empty($item->type))
-                                                    @if ($item->type == 'order')
-                                                        <i class="fa fa-store text-gray-400"
-                                                            style="font-size: 1.2rem;"></i>
-                                                    @else
-                                                        <i class="fa fa-message text-gray-400"
-                                                            style="font-size: 1.2rem;"></i>
-                                                    @endif
-                                                @else
-                                                    <i class="fa fa-message text-gray-400"
-                                                        style="font-size: 1.2rem;"></i>
-                                                @endif
+                                                <?php if(!empty($item->type)): ?>
+                                                    <?php if($item->type == 'order'): ?>
+                                                        <i class="fa fa-store text-gray-400" style="font-size: 1.2rem;"></i>
+                                                    <?php else: ?>
+                                                        <i class="fa fa-message text-gray-400" style="font-size: 1.2rem;"></i>
+                                                    <?php endif; ?>
+                                                <?php else: ?>
+                                                    <i class="fa fa-message text-gray-400" style="font-size: 1.2rem;"></i>
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                         <!--end::Timeline icon-->
@@ -1154,22 +993,21 @@
                                             <div class="pe-3 mb-5">
                                                 <!--begin::Title-->
                                                 <div class="fs-5 fw-semibold mb-2" style="color:#232f3e">
-                                                    @if (!empty($item->type))
-                                                        @if ($item->type == 'order')
-                                                            <p>New Order ID #{{ $item->extra_data }}</p>
-                                                        @else
-                                                            <p>{{ $item->type }}</p>
-                                                        @endif
-                                                    @else
-                                                        <a style="color:#232f3e"
-                                                            href="{{ url('admin/management/tickets/page/1') }}">{{ $item->subject }}</a>
-                                                    @endif
+                                                    <?php if(!empty($item->type)): ?>
+                                                        <?php if($item->type == 'order'): ?>
+                                                            <p>New Order ID #<?php echo e($item->extra_data); ?></p>
+                                                        <?php else: ?>
+                                                            <p><?php echo e($item->type); ?></p>
+                                                        <?php endif; ?>
+                                                    <?php else: ?>
+                                                        <a style="color:#232f3e" href="<?php echo e(url("admin/management/tickets/page/1")); ?>"><?php echo e($item->subject); ?></a>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <!--end::Title-->
                                                 <!--begin::Description-->
                                                 <div class="d-flex align-items-center mt-1 fs-6">
                                                     <!--begin::Info-->
-                                                    <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div>
+                                                    <div class="text-muted me-2 fs-7"><?php echo e($item->created_at); ?></div>
                                                     <!--end::Info-->
                                                 </div>
                                                 <!--end::Description-->
@@ -1179,158 +1017,156 @@
 
                                         <!--end::Timeline content-->
                                     </div>
-                                @endforeach
-                                {{--                              @foreach ($data as $item) --}}
 
-                                {{--                                  <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;"> --}}
-                                {{--                                      <!--begin::Timeline line--> --}}
-                                {{--                                      <div class="timeline-line "></div> --}}
-                                {{--                                      <!--end::Timeline line--> --}}
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                {{--                                      <!--begin::Timeline icon--> --}}
-                                {{--                                      <div class="timeline-icon symbol symbol-circle symbol-40px"> --}}
-                                {{--                                          <div class="symbol-label bg-light beforeElement"> --}}
-                                {{--                                              <i class="fa fa-message text-gray-400" style="font-size: 1.2rem;"></i> --}}
-                                {{--                                          </div> --}}
-                                {{--                                      </div> --}}
-                                {{--                                      <!--end::Timeline icon--> --}}
 
-                                {{--                                      <!--begin::Timeline content--> --}}
-                                {{--                                      <div class="timeline-content mt-n1"> --}}
-                                {{--                                          <!--begin::Timeline heading--> --}}
-                                {{--                                          <div class="pe-3 mb-5"> --}}
-                                {{--                                              <!--begin::Title--> --}}
-                                {{--                                              <div class="fs-5 fw-semibold mb-2"> --}}
-                                {{--                                                  <a style="color:#232f3e" href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Title--> --}}
 
-                                {{--                                                  <!--begin::Description--> --}}
-                                {{--                                              <div class="d-flex align-items-center mt-1 fs-6"> --}}
-                                {{--                                                  <!--begin::Info--> --}}
-                                {{--                                                  <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div> --}}
-                                {{--                                                  <!--end::Info--> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Description--> --}}
-                                {{--                                          </div> --}}
-                                {{--                                          <!--end::Timeline heading--> --}}
-                                {{--                                      </div> --}}
 
-                                {{--                                      <!--end::Timeline content--> --}}
-                                {{--                                  </div> --}}
 
-                                {{--                              @endforeach --}}
-                            @else
-                                <div class="fs-5 fw-semibold mb-2">No new Notification</div>
-                                {{-- <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" style="max-width: 180px;"> --}}
 
-                            @endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <?php else: ?>
+                        <div class="fs-5 fw-semibold mb-2">No new Notification</div>
+                            
+
+                        <?php endif; ?>
                         </div>
 
 
                         <div class="">
                             <div class="card-footer py-5 text-center" id="kt_activities_footer">
                                 <button class="btn btn-bg-body text-primary" onclick="clearNotificationByButton()">
-                                    Clear all notifications <i
-                                        class="ki-duotone ki-arrow-right fs-3 text-primary"><span
-                                            class="path1"></span><span class="path2"></span></i> </button>
+                                    Clear all notifications <i class="ki-duotone ki-arrow-right fs-3 text-primary"><span class="path1"></span><span class="path2"></span></i>			</button>
                             </div>
-                            {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger clearNotificationBtn"  @if (count($notification) > 0) onclick="clearNotification()" @else {{'disabled'}}  @endif >Clear</button> --}}
+                            
                         </div>
                     </div>
                 </div>
             </div>
 
-            {{--            <div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-            {{--                <div class="modal-dialog"> --}}
-            {{--                    <div class="modal-content"> --}}
-            {{--                        <div class="modal-header"> --}}
-            {{--                            <h5 class="modal-title" id="exampleModalLabel">Ticket Notification</h5> --}}
-            {{--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-            {{--                        </div> --}}
-            {{--                        <div class="modal-body" style="text-align: center;"> --}}
-            {{--                            <?php $data = DB::select('SELECT * FROM lv_users_tickets ORDER BY id DESC'); ?> --}}
-            {{--                            <table class="table hideTableDatawithCondition" style="text-align: center;"> --}}
 
 
-            {{--                                @if (count($data) > 0) --}}
 
-            {{--                                    <thead class="removeMessage"> --}}
-            {{--                                        <tr> --}}
-            {{--                                            <th style="width: 33%">ID</th> --}}
-            {{--                                            <th style="width: 33%">Subject</th> --}}
-            {{--                                            <th style="width: auto">Create Date</th> --}}
-            {{--                                        </tr> --}}
-            {{--                                    </thead> --}}
-            {{--                                    <tbody class="removeMessage"> --}}
 
-            {{--                                        @foreach ($data as $item) --}}
-            {{--                                        <tr> --}}
-            {{--                                            <td>{{ $item->id }}</td> --}}
-            {{--                                            <td><a href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a></td> --}}
-            {{--                                            <td>{{ $item->created_at }}</td> --}}
-            {{--                                        </tr> --}}
-            {{--                                        @endforeach --}}
-            {{--                                    </tbody> --}}
 
-            {{--                                @else --}}
 
-            {{--                                    <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;"> --}}
 
-            {{--                                @endif --}}
 
-            {{--                            </table> --}}
-            {{--                        </div> --}}
 
-            {{--                        <div class="modal-footer"> --}}
-            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-            {{--                            <button type="button" class="btn btn-danger clearMessageBtn"  @if (count($data) > 0) onclick="clearMessage()" @else {{'disabled'}}  @endif > Clear</button> --}}
-            {{--                        </div> --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             <!--end::Activities-->
             <!--begin::Chat-->
 
-            {{--            <div class="d-flex align-items-center ms-3 ms-lg-4"> --}}
-            {{--                <!--begin::Drawer wrapper--> --}}
-            {{--                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary btn-outline w-40px h-40px position-relative" id="kt_drawer_chat_toggle"> --}}
-            {{--                    <!--begin::Svg Icon | path: icons/duotune/communication/com003.svg--> --}}
-            {{--                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModals" onclick="readMessage()"> --}}
-            {{--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> --}}
-            {{--                            <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" /> --}}
-            {{--                            <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" /> --}}
-            {{--                        </svg> --}}
-            {{--                    </span> --}}
-            {{--                    <!--end::Svg Icon--> --}}
-            {{--                    <!--begin::Bullet--> --}}
-            {{--                    <?php $data = DB::select("SELECT * FROM lv_users_tickets ORDER BY id DESC");--}}
-{{--                    $unreadMsg = 0; ?> --}}
-            {{--                    @if ($data) --}}
-            {{--                    @foreach ($data as $value) --}}
-            {{--                    @if ($value->read_status != '1') --}}
-            {{--                    <?php $unreadMsg++; ?> --}}
-            {{--                    @endif --}}
-            {{--                    @endforeach --}}
-            {{--                    @endif --}}
-
-            {{--                    @if ($unreadMsg > 0) --}}
-            {{--                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink messageBlink"></span> --}}
-            {{--                    @endif --}}
 
 
-            {{--                    <!--end::Bullet--> --}}
-            {{--                </div> --}}
-            {{--                <!--end::Drawer wrapper--> --}}
-            {{--            </div> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <script>
                 function readMessage() {
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
+                    $.post("<?php echo e(url('readMessage')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".messageBlink").remove();
@@ -1338,16 +1174,16 @@
                     });
                 }
 
-                function readNotification() {
-                    $.post("{{ url('readNotification') }}", {
-                        "_token": "{{ csrf_token() }}"
+                function readNotification(){
+                     $.post("<?php echo e(url('readNotification')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".notificationBlink").remove();
                         }
                     });
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
+                    $.post("<?php echo e(url('readMessage')); ?>", {
+                        "_token": "<?php echo e(csrf_token()); ?>"
                     }).then((response) => {
                         if (response.status === true) {
                             $(".notificationBlink").remove();
@@ -1355,73 +1191,72 @@
                     });
                 }
 
-                function clearMessage() {
+                function clearMessage(){
                     Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.post("{{ url('clearMessage') }}", {
-                                "_token": "{{ csrf_token() }}"
-                            }).then((response) => {
-                                if (response.status === true) {
-                                    $(".clearMessageBtn").prop("disabled", true);
-                                    let image =
-                                        `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
-                                    $(".hideTableDatawithCondition").html(image);
-                                    Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
-                                } else {
-                                    Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
-                                }
-                            });
-                        }
+                      if (result.isConfirmed) {
+                        $.post("<?php echo e(url('clearMessage')); ?>", {
+                            "_token": "<?php echo e(csrf_token()); ?>"
+                        }).then((response) => {
+                            if (response.status === true) {
+                                $(".clearMessageBtn").prop("disabled",true);
+                                let image = `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
+                                $(".hideTableDatawithCondition").html(image);
+                                Swal.fire('Deleted!',`${response.message}`,`${response.condition}`);
+                            }else{
+                                Swal.fire('Oops!',`${response.message}`,`${response.condition}`);
+                            }
+                        });
+                      }
                     });
                 }
 
-                function clearNotification() {
+                function clearNotification(){
                     Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
+                      title: 'Are you sure?',
+                      text: "You won't be able to revert this!",
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonColor: '#3085d6',
+                      cancelButtonColor: '#d33',
+                      confirmButtonText: 'Yes, delete it!'
                     }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.post("{{ url('clearNotification') }}", {
-                                "_token": "{{ csrf_token() }}"
-                            }).then((response) => {
-                                if (response.status === true) {
-                                    $(".clearNotificationBtn").prop("disabled", true);
-                                    let image =
-                                        `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
-                                    $(".hideItemDataWithCondition").html(image);
-                                    Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
-                                } else {
-                                    Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
-                                }
-                            });
-                        }
+                      if (result.isConfirmed) {
+                        $.post("<?php echo e(url('clearNotification')); ?>", {
+                            "_token": "<?php echo e(csrf_token()); ?>"
+                        }).then((response) => {
+                            if (response.status === true) {
+                                $(".clearNotificationBtn").prop("disabled",true);
+                                let image = `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
+                                $(".hideItemDataWithCondition").html(image);
+                                Swal.fire('Deleted!',`${response.message}`,`${response.condition}`);
+                            }else{
+                                Swal.fire('Oops!',`${response.message}`,`${response.condition}`);
+                            }
+                        });
+                      }
                     });
                 }
 
-                function clearNotificationByButton() {
+                function clearNotificationByButton()
+                {
                     $('.hideItemDataWithCondition').html('<div class="fs-5 fw-semibold mb-2">No new Notification</div>')
                 }
             </script>
             <!--end::Chat-->
             <!--begin::Theme mode-->
             <!--<div class="d-flex align-items-center ms-3 ms-lg-4">-->
-
-            <!--begin::Menu toggle-->
+                
+                <!--begin::Menu toggle-->
             <!--    <a href="#" class="btn btn-icon btn-color-gray-700 btn-active-color-primary btn-outline w-40px h-40px" data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">-->
-            <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
             <!--        <span class="svg-icon theme-light-show svg-icon-1">-->
             <!--            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
             <!--                <path d="M11.9905 5.62598C10.7293 5.62574 9.49646 5.9995 8.44775 6.69997C7.39903 7.40045 6.58159 8.39619 6.09881 9.56126C5.61603 10.7263 5.48958 12.0084 5.73547 13.2453C5.98135 14.4823 6.58852 15.6185 7.48019 16.5104C8.37186 17.4022 9.50798 18.0096 10.7449 18.2557C11.9818 18.5019 13.2639 18.3757 14.429 17.8931C15.5942 17.4106 16.5901 16.5933 17.2908 15.5448C17.9915 14.4962 18.3655 13.2634 18.3655 12.0023C18.3637 10.3119 17.6916 8.69129 16.4964 7.49593C15.3013 6.30056 13.6808 5.62806 11.9905 5.62598Z" fill="currentColor" />-->
@@ -1435,8 +1270,8 @@
             <!--                <path d="M5.09541 6.69715C5.19979 6.8017 5.32374 6.88466 5.4602 6.94128C5.59665 6.9979 5.74292 7.02708 5.89065 7.02714C6.03839 7.0272 6.18469 6.99815 6.32119 6.94164C6.45769 6.88514 6.58171 6.80228 6.68618 6.69782C6.79064 6.59336 6.87349 6.46933 6.93 6.33283C6.9865 6.19633 7.01556 6.05003 7.01549 5.9023C7.01543 5.75457 6.98625 5.60829 6.92963 5.47184C6.87301 5.33539 6.79005 5.21143 6.6855 5.10706L5.6247 4.04626C5.5204 3.94137 5.39643 3.8581 5.25989 3.80121C5.12335 3.74432 4.97692 3.71493 4.82901 3.71472C4.68109 3.71452 4.53458 3.7435 4.39789 3.80001C4.26119 3.85652 4.13699 3.93945 4.03239 4.04404C3.9278 4.14864 3.84487 4.27284 3.78836 4.40954C3.73185 4.54624 3.70287 4.69274 3.70308 4.84066C3.70329 4.98858 3.73268 5.135 3.78957 5.27154C3.84646 5.40808 3.92974 5.53205 4.03462 5.63635L5.09541 6.69715Z" fill="currentColor" />-->
             <!--            </svg>-->
             <!--        </span>-->
-            <!--end::Svg Icon-->
-            <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
+                    <!--end::Svg Icon-->
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
             <!--        <span class="svg-icon theme-dark-show svg-icon-1">-->
             <!--            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
             <!--                <path d="M19.0647 5.43757C19.3421 5.43757 19.567 5.21271 19.567 4.93534C19.567 4.65796 19.3421 4.43311 19.0647 4.43311C18.7874 4.43311 18.5625 4.65796 18.5625 4.93534C18.5625 5.21271 18.7874 5.43757 19.0647 5.43757Z" fill="currentColor" />-->
@@ -1445,16 +1280,16 @@
             <!--                <path d="M13.0379 7.47998C13.8688 7.47998 14.5446 8.15585 14.5446 8.98668C14.5446 9.26428 14.7693 9.48891 15.0469 9.48891C15.3245 9.48891 15.5491 9.26428 15.5491 8.98668C15.5491 8.15585 16.225 7.47998 17.0558 7.47998C17.3334 7.47998 17.558 7.25535 17.558 6.97775C17.558 6.70015 17.3334 6.47552 17.0558 6.47552C16.225 6.47552 15.5491 5.76616 15.5491 4.93534C15.5491 4.65774 15.3245 4.43311 15.0469 4.43311C14.7693 4.43311 14.5446 4.65774 14.5446 4.93534C14.5446 5.76616 13.8688 6.47552 13.0379 6.47552C12.7603 6.47552 12.5357 6.70015 12.5357 6.97775C12.5357 7.25535 12.7603 7.47998 13.0379 7.47998Z" fill="currentColor" />-->
             <!--            </svg>-->
             <!--        </span>-->
-            <!--end::Svg Icon-->
+                    <!--end::Svg Icon-->
             <!--    </a>-->
-            <!--begin::Menu toggle-->
-            <!--begin::Menu-->
+                <!--begin::Menu toggle-->
+                <!--begin::Menu-->
             <!--    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-muted menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">-->
-            <!--begin::Menu item-->
+                    <!--begin::Menu item-->
             <!--        <div class="menu-item px-3 my-0">-->
             <!--            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">-->
             <!--                <span class="menu-icon" data-kt-element="icon">-->
-            <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen060.svg-->
             <!--                    <span class="svg-icon svg-icon-3">-->
             <!--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
             <!--                            <path d="M11.9905 5.62598C10.7293 5.62574 9.49646 5.9995 8.44775 6.69997C7.39903 7.40045 6.58159 8.39619 6.09881 9.56126C5.61603 10.7263 5.48958 12.0084 5.73547 13.2453C5.98135 14.4823 6.58852 15.6185 7.48019 16.5104C8.37186 17.4022 9.50798 18.0096 10.7449 18.2557C11.9818 18.5019 13.2639 18.3757 14.429 17.8931C15.5942 17.4106 16.5901 16.5933 17.2908 15.5448C17.9915 14.4962 18.3655 13.2634 18.3655 12.0023C18.3637 10.3119 17.6916 8.69129 16.4964 7.49593C15.3013 6.30056 13.6808 5.62806 11.9905 5.62598Z" fill="currentColor" />-->
@@ -1468,17 +1303,17 @@
             <!--                            <path d="M5.09541 6.69715C5.19979 6.8017 5.32374 6.88466 5.4602 6.94128C5.59665 6.9979 5.74292 7.02708 5.89065 7.02714C6.03839 7.0272 6.18469 6.99815 6.32119 6.94164C6.45769 6.88514 6.58171 6.80228 6.68618 6.69782C6.79064 6.59336 6.87349 6.46933 6.93 6.33283C6.9865 6.19633 7.01556 6.05003 7.01549 5.9023C7.01543 5.75457 6.98625 5.60829 6.92963 5.47184C6.87301 5.33539 6.79005 5.21143 6.6855 5.10706L5.6247 4.04626C5.5204 3.94137 5.39643 3.8581 5.25989 3.80121C5.12335 3.74432 4.97692 3.71493 4.82901 3.71472C4.68109 3.71452 4.53458 3.7435 4.39789 3.80001C4.26119 3.85652 4.13699 3.93945 4.03239 4.04404C3.9278 4.14864 3.84487 4.27284 3.78836 4.40954C3.73185 4.54624 3.70287 4.69274 3.70308 4.84066C3.70329 4.98858 3.73268 5.135 3.78957 5.27154C3.84646 5.40808 3.92974 5.53205 4.03462 5.63635L5.09541 6.69715Z" fill="currentColor" />-->
             <!--                        </svg>-->
             <!--                    </span>-->
-            <!--end::Svg Icon-->
+                                <!--end::Svg Icon-->
             <!--                </span>-->
             <!--                <span class="menu-title">Light</span>-->
             <!--            </a>-->
             <!--        </div>-->
-            <!--end::Menu item-->
-            <!--begin::Menu item-->
+                    <!--end::Menu item-->
+                    <!--begin::Menu item-->
             <!--        <div class="menu-item px-3 my-0">-->
             <!--            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">-->
             <!--                <span class="menu-icon" data-kt-element="icon">-->
-            <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen061.svg-->
             <!--                    <span class="svg-icon svg-icon-3">-->
             <!--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
             <!--                            <path d="M19.0647 5.43757C19.3421 5.43757 19.567 5.21271 19.567 4.93534C19.567 4.65796 19.3421 4.43311 19.0647 4.43311C18.7874 4.43311 18.5625 4.65796 18.5625 4.93534C18.5625 5.21271 18.7874 5.43757 19.0647 5.43757Z" fill="currentColor" />-->
@@ -1487,46 +1322,40 @@
             <!--                            <path d="M13.0379 7.47998C13.8688 7.47998 14.5446 8.15585 14.5446 8.98668C14.5446 9.26428 14.7693 9.48891 15.0469 9.48891C15.3245 9.48891 15.5491 9.26428 15.5491 8.98668C15.5491 8.15585 16.225 7.47998 17.0558 7.47998C17.3334 7.47998 17.558 7.25535 17.558 6.97775C17.558 6.70015 17.3334 6.47552 17.0558 6.47552C16.225 6.47552 15.5491 5.76616 15.5491 4.93534C15.5491 4.65774 15.3245 4.43311 15.0469 4.43311C14.7693 4.43311 14.5446 4.65774 14.5446 4.93534C14.5446 5.76616 13.8688 6.47552 13.0379 6.47552C12.7603 6.47552 12.5357 6.70015 12.5357 6.97775C12.5357 7.25535 12.7603 7.47998 13.0379 7.47998Z" fill="currentColor" />-->
             <!--                        </svg>-->
             <!--                    </span>-->
-            <!--end::Svg Icon-->
+                                <!--end::Svg Icon-->
             <!--                </span>-->
             <!--                <span class="menu-title">Dark</span>-->
             <!--            </a>-->
             <!--        </div>-->
-            <!--end::Menu item-->
-            <!--begin::Menu item-->
+                    <!--end::Menu item-->
+                    <!--begin::Menu item-->
             <!--        <div class="menu-item px-3 my-0">-->
             <!--            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">-->
             <!--                <span class="menu-icon" data-kt-element="icon">-->
-            <!--begin::Svg Icon | path: icons/duotune/general/gen062.svg-->
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen062.svg-->
             <!--                    <span class="svg-icon svg-icon-3">-->
             <!--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
             <!--                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.34375 3.9463V15.2178C1.34375 16.119 2.08105 16.8563 2.98219 16.8563H8.65093V19.4594H6.15702C5.38853 19.4594 4.75981 19.9617 4.75981 20.5757V21.6921H19.2403V20.5757C19.2403 19.9617 18.6116 19.4594 17.8431 19.4594H15.3492V16.8563H21.0179C21.919 16.8563 22.6562 16.119 22.6562 15.2178V3.9463C22.6562 3.04516 21.9189 2.30786 21.0179 2.30786H2.98219C2.08105 2.30786 1.34375 3.04516 1.34375 3.9463ZM12.9034 9.9016C13.241 9.98792 13.5597 10.1216 13.852 10.2949L15.0393 9.4353L15.9893 10.3853L15.1297 11.5727C15.303 11.865 15.4366 12.1837 15.523 12.5212L16.97 12.7528V13.4089H13.9851C13.9766 12.3198 13.0912 11.4394 12 11.4394C10.9089 11.4394 10.0235 12.3198 10.015 13.4089H7.03006V12.7528L8.47712 12.5211C8.56345 12.1836 8.69703 11.8649 8.87037 11.5727L8.0107 10.3853L8.96078 9.4353L10.148 10.2949C10.4404 10.1215 10.759 9.98788 11.0966 9.9016L11.3282 8.45467H12.6718L12.9034 9.9016ZM16.1353 7.93758C15.6779 7.93758 15.3071 7.56681 15.3071 7.1094C15.3071 6.652 15.6779 6.28122 16.1353 6.28122C16.5926 6.28122 16.9634 6.652 16.9634 7.1094C16.9634 7.56681 16.5926 7.93758 16.1353 7.93758ZM2.71385 14.0964V3.90518C2.71385 3.78023 2.81612 3.67796 2.94107 3.67796H21.0589C21.1839 3.67796 21.2861 3.78023 21.2861 3.90518V14.0964C15.0954 14.0964 8.90462 14.0964 2.71385 14.0964Z" fill="currentColor" />-->
             <!--                        </svg>-->
             <!--                    </span>-->
-            <!--end::Svg Icon-->
+                                <!--end::Svg Icon-->
             <!--                </span>-->
             <!--                <span class="menu-title">System</span>-->
             <!--            </a>-->
             <!--        </div>-->
-            <!--end::Menu item-->
+                    <!--end::Menu item-->
             <!--    </div>-->
-            <!--end::Menu-->
+                <!--end::Menu-->
 
             <!--</div>-->
             <!--end::Theme mode-->
             <!--begin::Sidebar Toggler-->
-            <button class="btn btn-icon btn-active-icon-primary w-40px h-40px d-xxl-none ms-2 me-n2"
-                id="kt_sidebar_toggler">
+            <button class="btn btn-icon btn-active-icon-primary w-40px h-40px d-xxl-none ms-2 me-n2" id="kt_sidebar_toggler">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod001.svg-->
                 <span class="svg-icon svg-icon-2x">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.3"
-                            d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z"
-                            fill="currentColor" />
-                        <path
-                            d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z"
-                            fill="currentColor" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z" fill="currentColor" />
+                        <path d="M17.1 12.1C17.1 14.9 14.9 17.1 12.1 17.1C9.30001 17.1 7.10001 14.9 7.10001 12.1C7.10001 9.29998 9.30001 7.09998 12.1 7.09998C14.9 7.09998 17.1 9.29998 17.1 12.1ZM12.1 10.1C11 10.1 10.1 11 10.1 12.1C10.1 13.2 11 14.1 12.1 14.1C13.2 14.1 14.1 13.2 14.1 12.1C14.1 11 13.2 10.1 12.1 10.1Z" fill="currentColor" />
                     </svg>
                 </span>
                 <!--end::Svg Icon-->
@@ -1534,9 +1363,9 @@
             <!--end::Sidebar Toggler-->
         </div>
         <!--end::Topbar-->
-
+       
     </div>
-
+  
     <!--end::Container-->
 </div>
 
@@ -1572,3 +1401,4 @@
         -- >
     });
 </script>
+<?php /**PATH E:\work\LaravelScript27.06\resources\views/backendV2/layouts/header.blade.php ENDPATH**/ ?>

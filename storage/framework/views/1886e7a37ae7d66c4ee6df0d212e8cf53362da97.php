@@ -97,7 +97,7 @@ div#kt_aside_menu {
     padding-right: 10px !important;
     margin-left: 4px;
 }
-@media only screen and (min-width: 1400px)  {
+@media  only screen and (min-width: 1400px)  {
 a span.white-menu-title, span.text-title.white-menu-title {
 
     font-size: 20px;
@@ -119,7 +119,7 @@ a span.white-menu-title, span.text-title.white-menu-title {
 </svg>
 
              <!--<img alt="Logo" src="adminV2/assets/media/logos/demo3-dark.svg" class="h-20px logo theme-dark-show" />-->
-             {{-- <img alt="Logo" src="assets/media/logos/demo3-dark.svg" class="h-20px logo theme-dark-show" />--}}
+             
          </a> 
         <!--end::Logo-->
     </div>
@@ -139,8 +139,8 @@ a span.white-menu-title, span.text-title.white-menu-title {
                 <!--<div class="aside-logo flex-column-auto px-9 " id="kt_aside_logo">-->
                     <!--begin::Logo-->
                     <!--<a href="/admin">-->
-                    <!--    <img alt="Logo" src="{{asset_dir('newdesign/assets/img/logo/logo.png')}}" class="h-80px logo" />-->
-                    <!--    {{-- <img alt="Logo" src="assets/media/logos/demo3-dark.svg" class="h-20px logo theme-dark-show" />--}}-->
+                    <!--    <img alt="Logo" src="<?php echo e(asset_dir('newdesign/assets/img/logo/logo.png')); ?>" class="h-80px logo" />-->
+                    <!--    -->
                     <!--</a>-->
                     <!--end::Logo-->
                 <!--</div>-->
@@ -148,7 +148,7 @@ a span.white-menu-title, span.text-title.white-menu-title {
                     <!--begin:Menu link-->
                     <div class="menu-sub show menu-sub-accordion">
                         <span class="menu-item over_ad">
-                            <a class="menu-link" href="{{ route('backendV2-dashboard') }}">
+                            <a class="menu-link" href="<?php echo e(route('backendV2-dashboard')); ?>">
                                 <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M16.5 18.8327V9.66602" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M11 18.8327V4.16602" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -187,24 +187,24 @@ a span.white-menu-title, span.text-title.white-menu-title {
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link"
-                                            href="{{ route('backend-management-products-with-pageNumber') }}">
+                                            href="<?php echo e(route('backend-management-products-with-pageNumber')); ?>">
                                             <!--<span class="menu-bullet">-->
                                             <!--    <span class="bullet bullet-dot"></span>-->
                                             <!--</span>-->
                                             <span
-                                                class="text-title white-menu-title">{{ __('backend/management.products.title') }}</span>
+                                                class="text-title white-menu-title"><?php echo e(__('backend/management.products.title')); ?></span>
                                         </a>
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
                                     <!--begin:Menu link-->
                                     <a class="menu-link"
-                                        href="{{ route('backend-management-products-categories-with-pageNumber') }}">
+                                        href="<?php echo e(route('backend-management-products-categories-with-pageNumber')); ?>">
                                         <!--<span class="menu-bullet">-->
                                         <!--    <span class="bullet bullet-dot"></span>-->
                                         <!--</span>-->
                                         <span
-                                            class="text-title white-menu-title">{{ __('backend/management.products.categories.title') }}</span>
+                                            class="text-title white-menu-title"><?php echo e(__('backend/management.products.categories.title')); ?></span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -218,7 +218,7 @@ a span.white-menu-title, span.text-title.white-menu-title {
                     <!--begin:Menu link-->
                     <div class="menu-sub show menu-sub-accordion">
                         <span class="menu-item">
-                            <a class="menu-link" href="{{ route('backend-management-users-with-pageNumber') }}">
+                            <a class="menu-link" href="<?php echo e(route('backend-management-users-with-pageNumber')); ?>">
                                 <span class="text-title white-menu-title"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.9998 12.4167C13.5311 12.4167 15.5832 10.3646 15.5832 7.83333C15.5832 5.30203 13.5311 3.25 10.9998 3.25C8.46853 3.25 6.4165 5.30203 6.4165 7.83333C6.4165 10.3646 8.46853 12.4167 10.9998 12.4167Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M18.3332 19.7503C18.3332 17.8054 17.5606 15.9401 16.1853 14.5649C14.81 13.1896 12.9448 12.417 10.9998 12.417C9.05492 12.417 7.18965 13.1896 5.81439 14.5649C4.43912 15.9401 3.6665 17.8054 3.6665 19.7503" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -235,7 +235,7 @@ a span.white-menu-title, span.text-title.white-menu-title {
                     <!--begin:Menu link-->
                     <div class="menu-sub show menu-sub-accordion">
                         <span class="menu-item">
-                            <a class="menu-link" href="{{ route('backend-orders-with-pageNumber') }}">
+                            <a class="menu-link" href="<?php echo e(route('backend-orders-with-pageNumber')); ?>">
                                 <span class="text-title white-menu-title"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.6665 18.3747C3.6665 17.7669 3.90795 17.184 4.33772 16.7542C4.76749 16.3245 5.35038 16.083 5.95817 16.083H18.3332" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.95817 2.33301H18.3332V20.6663H5.95817C5.35038 20.6663 4.76749 20.4249 4.33772 19.9951C3.90795 19.5654 3.6665 18.9825 3.6665 18.3747V4.62467C3.6665 4.01689 3.90795 3.43399 4.33772 3.00422C4.76749 2.57445 5.35038 2.33301 5.95817 2.33301Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -258,8 +258,8 @@ a span.white-menu-title, span.text-title.white-menu-title {
                 <!-- <div  class="menu-item here show menu-accordion"> -->
                 <!--begin:Menu link-->
                 <!-- <span class="menu-link">
-                         {{-- <a class="menu-link" href="{{ route('backendV2-jabber') }}"> --}}
-                             {{-- <span class="text-muted">{{ __('backend/jabber.title') }}</span> --}}
+                         
+                             
                          </a>
                      </span> -->
                 <!--end:Menu link-->
@@ -270,7 +270,7 @@ a span.white-menu-title, span.text-title.white-menu-title {
                     <!--begin:Menu link-->
                     <div class="menu-sub show menu-sub-accordion">
                         <span class="menu-item">
-                            <a class="menu-link" href="{{ route('backend-management-shop-logo') }}">
+                            <a class="menu-link" href="<?php echo e(route('backend-management-shop-logo')); ?>">
                                 <span class="text-title white-menu-title"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19.25 15.1664V7.83308C19.2497 7.51158 19.1648 7.19582 19.0039 6.91748C18.843 6.63914 18.6118 6.408 18.3333 6.24725L11.9167 2.58058C11.638 2.41967 11.3218 2.33496 11 2.33496C10.6782 2.33496 10.362 2.41967 10.0833 2.58058L3.66667 6.24725C3.38824 6.408 3.15698 6.63914 2.99609 6.91748C2.8352 7.19582 2.75033 7.51158 2.75 7.83308V15.1664C2.75033 15.4879 2.8352 15.8037 2.99609 16.082C3.15698 16.3604 3.38824 16.5915 3.66667 16.7522L10.0833 20.4189C10.362 20.5798 10.6782 20.6645 11 20.6645C11.3218 20.6645 11.638 20.5798 11.9167 20.4189L18.3333 16.7522C18.6118 16.5915 18.843 16.3604 19.0039 16.082C19.1648 15.8037 19.2497 15.4879 19.25 15.1664Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M11 14.25C12.5188 14.25 13.75 13.0188 13.75 11.5C13.75 9.98122 12.5188 8.75 11 8.75C9.48122 8.75 8.25 9.98122 8.25 11.5C8.25 13.0188 9.48122 14.25 11 14.25Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -287,7 +287,7 @@ Settings</span>
                     <!--begin:Menu link-->
                     <div class="menu-sub show menu-sub-accordion">
                         <span class="menu-item">
-                            <a class="menu-link" href="{{ route('backend-system-payments') }}">
+                            <a class="menu-link" href="<?php echo e(route('backend-system-payments')); ?>">
                                 <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.9999 20.6663C16.0625 20.6663 20.1666 16.5623 20.1666 11.4997C20.1666 6.43706 16.0625 2.33301 10.9999 2.33301C5.93731 2.33301 1.83325 6.43706 1.83325 11.4997C1.83325 16.5623 5.93731 20.6663 10.9999 20.6663Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M14.6666 7.83301H9.16659C8.68035 7.83301 8.21404 8.02616 7.87022 8.36998C7.52641 8.7138 7.33325 9.18011 7.33325 9.66634C7.33325 10.1526 7.52641 10.6189 7.87022 10.9627C8.21404 11.3065 8.68035 11.4997 9.16659 11.4997H12.8333C13.3195 11.4997 13.7858 11.6928 14.1296 12.0366C14.4734 12.3805 14.6666 12.8468 14.6666 13.333C14.6666 13.8192 14.4734 14.2856 14.1296 14.6294C13.7858 14.9732 13.3195 15.1663 12.8333 15.1663H7.33325" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -330,24 +330,24 @@ Settings</span>
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link"
-                                            href="{{ route('backend-management-tickets-with-pageNumber') }}">
+                                            href="<?php echo e(route('backend-management-tickets-with-pageNumber')); ?>">
                                             <!--<span class="menu-bullet">-->
                                             <!--    <span class="bullet bullet-dot"></span>-->
                                             <!--</span>-->
                                             <span
-                                                class="text-title white-menu-title">{{ __('backend/management.tickets.title') }}</span>
+                                                class="text-title white-menu-title"><?php echo e(__('backend/management.tickets.title')); ?></span>
                                         </a>
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
                                     <!--begin:Menu link-->
                                     <a class="menu-link"
-                                        href="{{ route('backend-management-tickets-categories-with-pageNumber') }}">
+                                        href="<?php echo e(route('backend-management-tickets-categories-with-pageNumber')); ?>">
                                         <!--<span class="menu-bullet">-->
                                         <!--    <span class="bullet bullet-dot"></span>-->
                                         <!--</span>-->
                                         <span
-                                            class="text-title white-menu-title">{{ __('backend/management.tickets.categories.title') }}</span>
+                                            class="text-title white-menu-title"><?php echo e(__('backend/management.tickets.categories.title')); ?></span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -363,7 +363,7 @@ Settings</span>
                     <!--begin:Menu link-->
                 <!--    <div class="menu-sub show menu-sub-accordion">-->
                 <!--        <span class="menu-item">-->
-                <!--            <a class="menu-link" href="{{ route('backendV2-orders') }}">-->
+                <!--            <a class="menu-link" href="<?php echo e(route('backendV2-orders')); ?>">-->
                 <!--                <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">-->
                 <!--                    <path d="M2.75 6.91634V8.74967C3.47935 8.74967 4.17882 9.03941 4.69454 9.55513C5.21027 10.0709 5.5 10.7703 5.5 11.4997C5.5 12.229 5.21027 12.9285 4.69454 13.4442C4.17882 13.9599 3.47935 14.2497 2.75 14.2497V16.083C2.75 17.0913 3.575 17.9163 4.58333 17.9163H17.4167C17.9029 17.9163 18.3692 17.7232 18.713 17.3794C19.0568 17.0356 19.25 16.5692 19.25 16.083V14.2497C18.5207 14.2497 17.8212 13.9599 17.3055 13.4442C16.7897 12.9285 16.5 12.229 16.5 11.4997C16.5 10.7703 16.7897 10.0709 17.3055 9.55513C17.8212 9.03941 18.5207 8.74967 19.25 8.74967V6.91634C19.25 6.43011 19.0568 5.9638 18.713 5.61998C18.3692 5.27616 17.9029 5.08301 17.4167 5.08301H4.58333C4.0971 5.08301 3.63079 5.27616 3.28697 5.61998C2.94315 5.9638 2.75 6.43011 2.75 6.91634Z" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
                 <!--                    <path d="M11.9167 5.08301V6.91634" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
@@ -371,7 +371,7 @@ Settings</span>
                 <!--                    <path d="M11.9167 10.583V12.4163" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
                 <!--                    </svg>-->
 
-                <!--                <span class="text-title white-menu-title">{{ __('backend/orders.title') }}</span>-->
+                <!--                <span class="text-title white-menu-title"><?php echo e(__('backend/orders.title')); ?></span>-->
                 <!--            </a>-->
                 <!--        </span>-->
                 <!--    </div>-->
@@ -380,21 +380,21 @@ Settings</span>
                 <!--end:Menu item-->
 
                 <!--begin:Menu item-->
-                {{-- <div   class="menu-item here show menu-accordion">--}}
+                
                 <!--begin:Menu link-->
                 <!--<span class="menu-link">-->
-                <!--    <a class="menu-link" href="{{ route('backendV2-design') }}">-->
-                <!--        <span class="text-muted">{{ __('backend/design.title') }}</span>-->
+                <!--    <a class="menu-link" href="<?php echo e(route('backendV2-design')); ?>">-->
+                <!--        <span class="text-muted"><?php echo e(__('backend/design.title')); ?></span>-->
                 <!--    </a>-->
-                {{-- </span>--}}
+                
                 <!--end:Menu link-->
-                {{-- </div>--}}
+                
                 <!--end:Menu item-->
 
                 <!-- <div class="menu-item">-->
                 <!--begin:Menu link-->
                 <!--    <span class="menu-link">-->
-                <!--        <a class="menu-link" href="{{ route('backend-management-marque') }}">-->
+                <!--        <a class="menu-link" href="<?php echo e(route('backend-management-marque')); ?>">-->
                 <!--            <span class="text-muted">Marque</span>-->
                 <!--        </a>-->
                 <!--     </span>-->
@@ -405,8 +405,8 @@ Settings</span>
                 <!-- <div  class="menu-item here show menu-accordion"> -->
                 <!--begin:Menu link-->
                 <!-- <span class="menu-link">
-                         <a class="menu-link" href="{{ route('backendV2-media') }}">
-                             <span class="text-muted">{{ __('backend/media.title') }}</span>
+                         <a class="menu-link" href="<?php echo e(route('backendV2-media')); ?>">
+                             <span class="text-muted"><?php echo e(__('backend/media.title')); ?></span>
                          </a>
                      </span> -->
                 <!--end:Menu link-->
@@ -438,7 +438,7 @@ Settings</span>
                                          <path d="M11.9167 5.08301V6.91634" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                          <path d="M11.9167 16.083V17.9163" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                          <path d="M11.9167 10.583V12.4163" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                         </svg> {{ __('backend/management.tickets.title') }}</span>
+                                         </svg> <?php echo e(__('backend/management.tickets.title')); ?></span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
@@ -450,7 +450,7 @@ Settings</span>
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link"
-                                            href="{{ route('backend-management-tickets-with-pageNumber') }}">
+                                            href="<?php echo e(route('backend-management-tickets-with-pageNumber')); ?>">
                                             <!--<span class="menu-bullet">-->
                                             <!--    <span class="bullet bullet-dot"></span>-->
                                             <!--</span>-->
@@ -461,19 +461,19 @@ Settings</span>
                                          <path d="M11.9167 16.083V17.9163" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                          <path d="M11.9167 10.583V12.4163" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                          </svg>
-{{ __('backend/management.tickets.title') }}</span>
+<?php echo e(__('backend/management.tickets.title')); ?></span>
                                         </a>
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
                                     <!--begin:Menu link-->
                                     <a class="menu-link"
-                                        href="{{ route('backend-management-tickets-categories-with-pageNumber') }}">
+                                        href="<?php echo e(route('backend-management-tickets-categories-with-pageNumber')); ?>">
                                         <!--<span class="menu-bullet">-->
                                         <!--    <span class="bullet bullet-dot"></span>-->
                                         <!--</span>-->
                                         <span
-                                            class="text-title white-menu-title">{{ __('backend/management.tickets.categories.title') }}</span>
+                                            class="text-title white-menu-title"><?php echo e(__('backend/management.tickets.categories.title')); ?></span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -498,7 +498,7 @@ Settings</span>
 <path d="M8.33252 8.74955C8.54803 8.13691 8.97341 7.62031 9.53331 7.29125C10.0932 6.96219 10.7515 6.84191 11.3916 6.9517C12.0317 7.06149 12.6123 7.39428 13.0305 7.89111C13.4487 8.38795 13.6777 9.01677 13.6767 9.66621C13.6767 11.4995 10.9267 12.4162 10.9267 12.4162" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M11 16.084H11.01" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-{{ __('backend/management.faqs.title') }}</span>
+<?php echo e(__('backend/management.faqs.title')); ?></span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
@@ -510,24 +510,24 @@ Settings</span>
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
                                         <a class="menu-link"
-                                            href="{{ route('backend-management-faqs-with-pageNumber') }}">
+                                            href="<?php echo e(route('backend-management-faqs-with-pageNumber')); ?>">
                                             <!--<span class="menu-bullet">-->
                                             <!--    <span class="bullet bullet-dot"></span>-->
                                             <!--</span>-->
                                             <span
-                                                class="text-title white-menu-title">{{ __('backend/management.faqs.title') }}</span>
+                                                class="text-title white-menu-title"><?php echo e(__('backend/management.faqs.title')); ?></span>
                                         </a>
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
                                     <!--begin:Menu link-->
                                     <a class="menu-link"
-                                        href="{{ route('backend-management-faqs-categories-with-pageNumber') }}">
+                                        href="<?php echo e(route('backend-management-faqs-categories-with-pageNumber')); ?>">
                                         <!--<span class="menu-bullet">-->
                                         <!--    <span class="bullet bullet-dot"></span>-->
                                         <!--</span>-->
                                         <span
-                                            class="text-title white-menu-title">{{ __('backend/management.faqs.categories.title') }}</span>
+                                            class="text-title white-menu-title"><?php echo e(__('backend/management.faqs.categories.title')); ?></span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -542,7 +542,7 @@ Settings</span>
                         <!-- <span class="menu-bullet"> -->
                         <!-- <span class="bullet bullet-dot"></span> -->
                         <!-- </span> -->
-                        <!-- <span class="text-muted">{{ __('backend/management.articles.title') }}</span> -->
+                        <!-- <span class="text-muted"><?php echo e(__('backend/management.articles.title')); ?></span> -->
                         <!-- </a> -->
                         <!--end:Menu link-->
                         <!-- </div> -->
@@ -551,11 +551,11 @@ Settings</span>
 
                         <!-- <div class="menu-item"> -->
                         <!--begin:Menu link-->
-                        <!-- <a class="menu-link" href="{{ route('backend-management-delivery-methods-with-pageNumber') }}">
+                        <!-- <a class="menu-link" href="<?php echo e(route('backend-management-delivery-methods-with-pageNumber')); ?>">
                                          <span class="menu-bullet">
                                              <span class="bullet bullet-dot"></span>
                                          </span>
-                                 <span class="text-muted">{{ __('backend/management.delivery_methods.title') }}</span>
+                                 <span class="text-muted"><?php echo e(__('backend/management.delivery_methods.title')); ?></span>
                              </a> -->
                         <!--end:Menu link-->
                         <!-- </div> -->
@@ -584,7 +584,7 @@ Settings</span>
                             <!--begin:Menu item-->
                             <div class="menu-item">
                                 <!--begin:Menu link-->
-                                <a class="menu-link" href="{{ route('backend-management-shop-logo') }}">
+                                <a class="menu-link" href="<?php echo e(route('backend-management-shop-logo')); ?>">
                                     <!--<span class="menu-bullet">-->
                                     <!--    <span class="bullet bullet-dot"></span>-->
                                     <!--</span>-->
@@ -595,7 +595,7 @@ Settings</span>
                             <!--end:Menu item-->
                             <!--begin:Menu link-->
                             <a class="menu-link"
-                                href="{{ route('backend-management-tickets-categories-with-pageNumber') }}">
+                                href="<?php echo e(route('backend-management-tickets-categories-with-pageNumber')); ?>">
                                 <!--<span class="menu-bullet">-->
                                 <!--    <span class="bullet bullet-dot"></span>-->
                                 <!--</span>-->
@@ -603,7 +603,7 @@ Settings</span>
                             </a>
 
                             <a class="menu-link"
-                                href="{{ route('backend-management-tickets-categories-with-pageNumber') }}">
+                                href="<?php echo e(route('backend-management-tickets-categories-with-pageNumber')); ?>">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -638,11 +638,11 @@ Settings</span>
                 <!--begin:Menu item-->
                 <!-- <div class="menu-item"> -->
                 <!--begin:Menu link-->
-                <!-- <a class="menu-link" href="{{ route('backend-system-settings') }}">
+                <!-- <a class="menu-link" href="<?php echo e(route('backend-system-settings')); ?>">
                                          <span class="menu-bullet">
                                              <span class="bullet bullet-dot"></span>
                                          </span>
-                                 <span class="text-muted">{{ __('backend/system.settings.title') }}</span>
+                                 <span class="text-muted"><?php echo e(__('backend/system.settings.title')); ?></span>
                              </a> -->
                 <!--end:Menu link-->
                 <!-- </div> -->
@@ -650,11 +650,11 @@ Settings</span>
                 <!--begin:Menu item-->
                 <!-- <div class="menu-item"> -->
                 <!--begin:Menu link-->
-                <!-- <a class="menu-link" href="{{ route('backend-system-bonus') }}">
+                <!-- <a class="menu-link" href="<?php echo e(route('backend-system-bonus')); ?>">
                                          <span class="menu-bullet">
                                              <span class="bullet bullet-dot"></span>
                                          </span>
-                                 <span class="text-muted">{{ __('backend/system.bonus.title') }}</span>
+                                 <span class="text-muted"><?php echo e(__('backend/system.bonus.title')); ?></span>
                              </a> -->
                 <!--end:Menu link-->
                 <!-- </div> -->
@@ -662,11 +662,11 @@ Settings</span>
                 <!--begin:Menu item-->
                 <!-- <div class="menu-item"> -->
                 <!--begin:Menu link-->
-                <!-- <a class="menu-link" href="{{ route('backend-system-payments') }}">
+                <!-- <a class="menu-link" href="<?php echo e(route('backend-system-payments')); ?>">
                                          <span class="menu-bullet">
                                              <span class="bullet bullet-dot"></span>
                                          </span>
-                                 <span class="text-muted">{{ __('backend/system.payment_methods.title') }}</span>
+                                 <span class="text-muted"><?php echo e(__('backend/system.payment_methods.title')); ?></span>
                              </a> -->
                 <!--end:Menu link-->
                 <!-- </div> -->
@@ -698,7 +698,7 @@ Settings</span>
                 </div>
                 <!--end::Avatar-->
                 <!--begin::User info-->
-                @if(Auth::check())
+                <?php if(Auth::check()): ?>
                 <div class="ms-2">
                     <!--begin::Name-->
                     <a href="#" class="text-white text-hover-primary fs-6 fw-bold lh-1"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -712,7 +712,7 @@ Logout</a>
                     <!--<span class="text-muted fw-semibold d-block fs-7 lh-1">Python Dev</span>-->
                     <!--end::Major-->
                 </div>
-                @endif
+                <?php endif; ?>
                 <!--end::User info-->
             </div>
 
@@ -782,7 +782,7 @@ Logout</a>
                     <!--begin::Menu item-->
 
                     <div class="menu-item px-5 my-1">
-                        <!-- <a href="{{url('admin/language')}}" class="menu-link px-5">language</a> -->
+                        <!-- <a href="<?php echo e(url('admin/language')); ?>" class="menu-link px-5">language</a> -->
                         <div class="ms-1">
                             <div class="btn btn-sm btn-icon btn-active-color-primary position-relative me-n2"
                                 style="width: 100%;" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
@@ -790,16 +790,17 @@ Logout</a>
                                 <!--begin::Svg Icon | path: icons/duotune/coding/cod001.svg-->
                                 <span class="menu-link px-5" style="font-size: 15px;">
                                     Language
-                                    @php
+                                    <?php
                                     if( \Lang::locale() == "de"){
                                     $localeImage = "/assets/svg/flags/017-germany.svg";
                                     }else{
                                     $localeImage = "/assets/svg/flags/020-flag.svg";
                                     }
-                                    @endphp
+                                    ?>
                                     <span
-                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">{{ \Lang::get('locale.name', [], \Lang::locale()) }}
-                                        <img class="w-15px h-15px rounded-1 ms-2" src="{{ $localeImage }}" alt="" />
+                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0"><?php echo e(\Lang::get('locale.name', [], \Lang::locale())); ?>
+
+                                        <img class="w-15px h-15px rounded-1 ms-2" src="<?php echo e($localeImage); ?>" alt="" />
                                     </span>
                                 </span>
 
@@ -849,21 +850,21 @@ Logout</a>
                                 <!--begin::Menu item-->
 
                                 <div class="menu-item px-5 my-1">
-                                    @if(count(App\Models\Setting::getAvailableLocales()))
-                                    @foreach(App\Models\Setting::getAvailableLocales() as $locale)
-                                    @php
+                                    <?php if(count(App\Models\Setting::getAvailableLocales())): ?>
+                                    <?php $__currentLoopData = App\Models\Setting::getAvailableLocales(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $locale): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <?php
                                     if( \Lang::get('locale.name', [], $locale) == "Deutsch"){
                                     $val = "/assets/svg/flags/017-germany.svg";
                                     }else{
                                     $val = "/assets/svg/flags/020-flag.svg";
                                     }
-                                    @endphp
-                                    <a href="{{ route('language', $locale) }}"
+                                    ?>
+                                    <a href="<?php echo e(route('language', $locale)); ?>"
                                         style="display: flex; justify-content: space-between; align-items: center;"
-                                        class="menu-link px-5">{{ \Lang::get('locale.name', [], $locale) }}<img
-                                            width="20px" height="20px" src="@php echo  $val; @endphp"></a>
-                                    @endforeach
-                                    @endif
+                                        class="menu-link px-5"><?php echo e(\Lang::get('locale.name', [], $locale)); ?><img
+                                            width="20px" height="20px" src="<?php echo  $val; ?>"></a>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    <?php endif; ?>
                                 </div>
 
                                 <!--end::Menu item-->
@@ -878,12 +879,12 @@ Logout</a>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5 my-1">
-                        <a href="{{url('settings')}}" class="menu-link px-5">Account Settings</a>
+                        <a href="<?php echo e(url('settings')); ?>" class="menu-link px-5">Account Settings</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="{{url('/admin/session/logout')}}" class="menu-link px-5">Sign Out</a>
+                        <a href="<?php echo e(url('/admin/session/logout')); ?>" class="menu-link px-5">Sign Out</a>
                     </div>
                     <!--end::Menu item-->
                 </div>
@@ -894,4 +895,4 @@ Logout</a>
         <!--end::User panel-->
     </div>
     <!--end::Footer-->
-</div>
+</div><?php /**PATH E:\work\LaravelScript27.06\resources\views/backendV2/layouts/sidebar.blade.php ENDPATH**/ ?>

@@ -1,11 +1,11 @@
-@extends('backendV2.layouts.default')
-@section('pageTitle', __('Welcome back'))
 
-@php
+<?php $__env->startSection('pageTitle', __('Welcome back')); ?>
+
+<?php
     $name = Auth::user()->name;
-@endphp
+?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <style>
         .chart-legend {
             margin-top: 80px;
@@ -303,7 +303,7 @@
             margin-top: 24px;
         }
 
-        @media only screen and (min-width: 1400px) {
+        @media  only screen and (min-width: 1400px) {
 
             .container,
             .container-lg,
@@ -699,9 +699,7 @@
         /*JSB*/
     </style>
     <!-- begin:: Content Head -->
-    {{-- <div class="main_row">
-        <h1 class="dashboard_about">{{ $name }}</h1>
-    </div> --}}
+    
     <div class="content d-flex flex-column flex-column-fluid pt-0" id="kt_content">
         <!--begin::Container-->
         <div class="container-xxl" id="kt_content_container">
@@ -746,7 +744,7 @@
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/totalsales.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/totalsales.svg')); ?>">
                                     Total sales</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -806,7 +804,7 @@
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/visitors.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/visitors.svg')); ?>">
                                     Visitors</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -866,7 +864,7 @@
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/totalorders.png') }}">
+                                    <img src="<?php echo e(url('public/asset/images/totalorders.png')); ?>">
                                     Total Orders</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -926,7 +924,7 @@
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/refund.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/refund.svg')); ?>">
                                     Refund</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -991,7 +989,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <a href="#">More<img src="{{ url('public/asset/images/arrow.svg') }}"></a>
+                                <a href="#">More<img src="<?php echo e(url('public/asset/images/arrow.svg')); ?>"></a>
                             </div>
                         </div>
 
@@ -1087,9 +1085,9 @@
             </div>
             <!--end::Tables Widget 9-->
             <!-- end:: Content Body -->
-        @endsection
+        <?php $__env->stopSection(); ?>
 
-        @section('page_scripts')
+        <?php $__env->startSection('page_scripts'); ?>
             <script>
                 jQuery(document).ready(function() {
                     jQuery(".jsb-active-1").hover(
@@ -1549,6 +1547,14 @@
                     options: options,
                 });
 
+                // Select August and show revenue tooltip
+                myChart.setActiveElements([{
+                    datasetIndex: 0,
+                    index: 2
+                }]);
+                myChart.tooltip.update(true);
             </script>
 
-        @endsection
+        <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backendV2.layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\work\Figma-Laravel\LaravelScript27.06\resources\views/backendV2/dashboard.blade.php ENDPATH**/ ?>

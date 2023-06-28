@@ -1,21 +1,12 @@
-@extends('backendV2.layouts.default')
-@section('pageTitle', __('Welcome back'))
 
-@php
+<?php $__env->startSection('pageTitle', __('Welcome back')); ?>
+
+<?php
     $name = Auth::user()->name;
-@endphp
+?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <style>
-        .chart-legend {
-            margin-top: 80px;
-            /* Adjust the top margin to set the space between the legend and the graph */
-        }
-
-        .height-100 {
-            height: 100%;
-        }
-
         .timeline-label:before {
             left: 88px !important;
         }
@@ -156,7 +147,6 @@
             border-radius: 0px;
             padding: 30px;
             display: flex;
-            height: 100%;
             flex-direction: column;
             justify-content: center;
         }
@@ -303,7 +293,7 @@
             margin-top: 24px;
         }
 
-        @media only screen and (min-width: 1400px) {
+        @media  only screen and (min-width: 1400px) {
 
             .container,
             .container-lg,
@@ -358,7 +348,7 @@
 
         /*JSB*/
         body#kt_body {
-            background: #151515 !important;
+            background: #151515;
         }
 
         h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
@@ -428,7 +418,7 @@
             border-radius: 10px;
             border: 2px solid #303030;
             background: transparent;
-            padding: 7px 34px;
+            padding: 10px 34px;
             color: #7D7D7D;
         }
 
@@ -441,6 +431,7 @@
             width: 100%;
             border-radius: 10px;
             border: 2px solid #303030;
+            background: transparent;
             padding: 10px;
             color: #fff;
         }
@@ -561,6 +552,7 @@
         .sal-graph-card {
             background: #1D1D1D;
             border-radius: 10px;
+            padding: 30px;
             height: 100%;
         }
 
@@ -586,10 +578,9 @@
             line-height: 24px;
         }
 
-        .jsb-flex ul li a {
+        .jsb-flex ul li a{
             color: #7D7D7D !important;
         }
-
         .j-item-1 {
             color: #DA5538 !important;
 
@@ -688,20 +679,10 @@
             color: #FFFFFF;
         }
 
-        #topProductTable {
-            font-size: 20px;
-        }
-
-        .jsb-active {
-            position: relative;
-        }
-
         /*JSB*/
     </style>
     <!-- begin:: Content Head -->
-    {{-- <div class="main_row">
-        <h1 class="dashboard_about">{{ $name }}</h1>
-    </div> --}}
+    
     <div class="content d-flex flex-column flex-column-fluid pt-0" id="kt_content">
         <!--begin::Container-->
         <div class="container-xxl" id="kt_content_container">
@@ -713,40 +694,12 @@
             <div class="row dasboard_graph ">
                 <div class="col-xl-3 col-sm-12">
                     <div class="card card-xl-stretch mb-xl-0 theme-dark-bg-body card_main_1">
-                        <div class="card-body d-flex flex-column jsb-active jsb-active-1">
-                            <div style="display: none;" class="svg-container">
-                                <svg style="position: absolute; right:0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-
-                                <svg style="position: absolute; right: 0; bottom: 0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
-
+                        <div class="card-body d-flex flex-column jsb-active">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/totalsales.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/totalsales.svg')); ?>">
                                     Total sales</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -774,39 +727,12 @@
                 </div>
                 <div class="col-xl-3 col-sm-12">
                     <div class="card card-xl-stretch mb-xl-0 theme-dark-bg-body card_main_2">
-                        <div class="card-body d-flex flex-column jsb-active jsb-active-2">
-                            <div style="display: none;" class="svg-container">
-                                <svg style="position: absolute; right:0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-
-                                <svg style="position: absolute; right: 0; bottom: 0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                        <div class="card-body d-flex flex-column jsb-active-2">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/visitors.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/visitors.svg')); ?>">
                                     Visitors</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -834,39 +760,12 @@
                 </div>
                 <div class="col-xl-3 col-sm-12">
                     <div class="card card-xl-stretch mb-xl-0 theme-dark-bg-body card_main_3">
-                        <div class="card-body d-flex flex-column jsb-active jsb-active-3">
-                            <div style="display: none;" class="svg-container">
-                                <svg style="position: absolute; right:0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-
-                                <svg style="position: absolute; right: 0; bottom: 0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                        <div class="card-body d-flex flex-column jsb-active-3">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/totalorders.png') }}">
+                                    <img src="<?php echo e(url('public/asset/images/totalorders.png')); ?>">
                                     Total Orders</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -894,39 +793,12 @@
                 </div>
                 <div class="col-xl-3 col-sm-12">
                     <div class="card card-xl-stretch mb-xl-0 theme-dark-bg-body card_main_4">
-                        <div class="card-body d-flex flex-column jsb-active jsb-active-4">
-                            <div style="display: none;" class="svg-container">
-                                <svg style="position: absolute; right:0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-
-                                <svg style="position: absolute; right: 0; bottom: 0;" width="183" height="100"
-                                    viewBox="0 0 183 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M91.5 0L183 100H0L91.5 0Z" fill="url(#paint0_linear_13_673)"
-                                        fill-opacity="0.5" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_13_673" x1="77.5" y1="1.17382e-06"
-                                            x2="97.5" y2="100" gradientUnits="userSpaceOnUse">
-                                            <stop stop-color="white" />
-                                            <stop offset="1" stop-color="white" stop-opacity="0" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                            </div>
+                        <div class="card-body d-flex flex-column jsb-active-4">
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column flex-grow-1">
                                 <!--begin::Title-->
                                 <a href="#" class="text-dark fs-3 sal-card-title">
-                                    <img src="{{ url('public/asset/images/refund.svg') }}">
+                                    <img src="<?php echo e(url('public/asset/images/refund.svg')); ?>">
                                     Refund</a>
                                 <!--end::Title-->
                                 <!--begin::Chart-->
@@ -958,8 +830,8 @@
                 <!--begin::Col-->
                 <div class="col-xl-9">
                     <!--begin::Mixed Widget 14-->
-                    <div class="sal-graph-card p-7 pb-0" style="position: relative;">
-                        <h1 class="m-0 sal-rev-h1">Revenue vs Orders</h1>
+                    <div class="sal-graph-card">
+                        <h1 class="sal-rev-h1">Revenue vs Orders</h1>
                         <div class="jsb-card">
                             <h2>Aug. 2022</h2>
                             <h3>$8,349.13</h3>
@@ -976,7 +848,7 @@
                 </div>
                 <!--end::Col-->
                 <div class="col-xl-3">
-                    <div class="sal-graph-card p-7" id="jsbrel">
+                    <div class="sal-graph-card" id="jsbrel">
                         <h2 class="sal-rev-h2">Sales by category</h2>
                         <span class="sal-rev-span">$35.7K</span>
                         <div>
@@ -991,7 +863,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <a href="#">More<img src="{{ url('public/asset/images/arrow.svg') }}"></a>
+                                <a href="#">More<img src="<?php echo e(url('public/asset/images/arrow.svg')); ?>"></a>
                             </div>
                         </div>
 
@@ -1003,78 +875,69 @@
             <!--end::Row-->
             <!--begin::Tables Widget 9-->
             <div class="row dasboard_graph_2">
-                <div class="col-xl-9 card p-7">
-                    <!--This row for search bar and title before table -->
-                    <div class="row search-bar">
-                        <div class="col-xl-4">
-                            <h1>Top products</h1>
+                <div class="col-xl-9">
+                    <div class="card mb-5 mb-xl-10 table_offer">
+                        <!--This row for search bar and title before table -->
+                        <div class="row search-bar">
+                            <div class="col-xl-4">
+                                <h1>Top products</h1>
+                            </div>
+                            <div class="col-xl-6">
+                                <form>
+                                    <label>
+                                        <input type="text" placeholder="Search">
+                                    </label>
+                                </form>
+                            </div>
+                            <div class="col-xl-2">
+                                <select>
+                                    <option>
+                                        This Week
+                                    </option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-xl-6">
-                            <form>
-                                <label style="font-size: 20px">
-                                    <input type="search" placeholder="Search">
-                                </label>
-                            </form>
+                        <!--This row for search bar and title before table end here -->
+
+                        <!--begin::Body-->
+                        <div class="card-body py-3">
+                            <!--begin::Table container-->
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <!-- UserOrder::orderByDesc('created_at')->limit(10)->get()->all(); -->
+
+                                <table class="table table-row-gray-300 align-middle gs-0 gy-4">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <tr class="fw-bold text-muted">
+                                            <th class="min-w-200px">Product name</th>
+                                            <th class="min-w-150px">Order ID</th>
+                                            <th class="min-w-150px">Price</th>
+                                            <th class="min-w-150px">Sold</th>
+                                            <th class="min-w-100px text-end">Sales</th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    <tbody>
+
+                                        <tr>
+                                            <td class="min-w-200px">Product name</td>
+                                            <td class="min-w-150px">Order ID</td>
+                                            <td class="min-w-150px">Price</td>
+                                            <td class="min-w-150px">Sold</td>
+                                            <td class="min-w-100px text-end">Sales</td>
+                                        </tr>
+
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                                <!--end::Table-->
+                            </div>
+                            <!--end::Table container-->
                         </div>
-                        <div class="col-xl-2" style="font-size: 20px;">
-                            <select class="form-select bg-transparent">
-                                <option>
-                                    This Week
-                                </option>
-                            </select>
-                        </div>
+                        <!--begin::Body-->
                     </div>
-                    <!--This row for search bar and title before table end here -->
-
-                    <!--begin::Body-->
-                    <div class="card-body py-3">
-                        <!--begin::Table container-->
-                        <div class="table-responsive" id="topProductTable">
-                            <!--begin::Table-->
-                            <!-- UserOrder::orderByDesc('created_at')->limit(10)->get()->all(); -->
-
-                            <table class="table table-row-gray-300 align-middle gs-0 gy-4">
-                                <!--begin::Table head-->
-                                <thead>
-                                    <tr class="fw-bold text-muted">
-                                        <th class="min-w-200px">Product name</th>
-                                        <th class="min-w-150px">Order ID</th>
-                                        <th class="min-w-150px">Price</th>
-                                        <th class="min-w-150px">Sold</th>
-                                        <th class="min-w-100px text-end">Sales</th>
-                                    </tr>
-                                </thead>
-                                <!--end::Table head-->
-                                <!--begin::Table body-->
-                                <tbody>
-
-                                    <tr>
-                                        <td class="min-w-200px">
-                                            <svg style="margin-right:13px" width="22" height="22"
-                                                viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M2.75 2C2.75 1.30964 3.30964 0.75 4 0.75H18C18.6904 0.75 19.25 1.30964 19.25 2V11.25H2.75V2Z"
-                                                    stroke="white" stroke-width="1.5" />
-                                                <rect x="0.75" y="11.75" width="20.5" height="4.5"
-                                                    rx="2.25" stroke="white" stroke-width="1.5" />
-                                            </svg>
-                                            MackBook Air AAPL
-
-                                        </td>
-                                        <td class="min-w-150px">#719261</td>
-                                        <td class="min-w-150px">$1,846</td>
-                                        <td class="min-w-150px">9,971</td>
-                                        <td class="min-w-100px text-end">$15,308,94</td>
-                                    </tr>
-
-                                </tbody>
-                                <!--end::Table body-->
-                            </table>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Table container-->
-                    </div>
-                    <!--begin::Body-->
                 </div>
                 <div class="col-xl-3 mt-0">
                     <div class="offer_block">
@@ -1087,53 +950,53 @@
             </div>
             <!--end::Tables Widget 9-->
             <!-- end:: Content Body -->
-        @endsection
+        <?php $__env->stopSection(); ?>
 
-        @section('page_scripts')
+        <?php $__env->startSection('page_scripts'); ?>
             <script>
                 jQuery(document).ready(function() {
-                    jQuery(".jsb-active-1").hover(
-                        function() {
-                            jQuery(".jsb-active").css("background-color", "transparent");
-                            jQuery(".jsb-active-1").css("background-color", "#D3F56A");
-                            jQuery(".jsb-active-1 .svg-container").css("display", "block");
-                        },
-                        function() {
-                            jQuery(".jsb-active").css("background-color", "transparent");
-                            jQuery(".svg-container").css("display", "none");
-                        }
-                    );
+                    jQuery(".jsb-active").css("background-color", "#D3F56A");
+
                     jQuery(".jsb-active-2").hover(
                         function() {
                             jQuery(".jsb-active").css("background-color", "transparent");
                             jQuery(".jsb-active-2").css("background-color", "#D3F56A");
-                            jQuery(".jsb-active-2 .svg-container").css("display", "block");
+                            jQuery(".jsb-active-3").css("background-color", "transparent");
+                            jQuery(".jsb-active-4").css("background-color", "transparent");
                         },
                         function() {
-                            jQuery(".jsb-active").css("background-color", "transparent");
-                            jQuery(".svg-container").css("display", "none");
+                            jQuery(".jsb-active").css("background-color", "#D3F56A");
+                            jQuery(".jsb-active-2").css("background-color", "transparent");
+                            jQuery(".jsb-active-3").css("background-color", "transparent");
+                            jQuery(".jsb-active-4").css("background-color", "transparent");
                         }
                     );
                     jQuery(".jsb-active-3").hover(
                         function() {
                             jQuery(".jsb-active").css("background-color", "transparent");
+                            jQuery(".jsb-active-2").css("background-color", "transparent");
+                            jQuery(".jsb-active-4").css("background-color", "transparent");
                             jQuery(".jsb-active-3").css("background-color", "#D3F56A");
-                            jQuery(".jsb-active-3 .svg-container").css("display", "block");
                         },
                         function() {
-                            jQuery(".jsb-active").css("background-color", "transparent");
-                            jQuery(".svg-container").css("display", "none");
+                            jQuery(".jsb-active").css("background-color", "#D3F56A");
+                            jQuery(".jsb-active-2").css("background-color", "transparent");
+                            jQuery(".jsb-active-4").css("background-color", "transparent");
+                            jQuery(".jsb-active-3").css("background-color", "transparent");
                         }
                     );
                     jQuery(".jsb-active-4").hover(
                         function() {
                             jQuery(".jsb-active").css("background-color", "transparent");
+                            jQuery(".jsb-active-2").css("background-color", "transparent");
+                            jQuery(".jsb-active-3").css("background-color", "transparent");
                             jQuery(".jsb-active-4").css("background-color", "#D3F56A");
-                            jQuery(".jsb-active-4 .svg-container").css("display", "block");
                         },
                         function() {
-                            jQuery(".jsb-active").css("background-color", "transparent");
-                            jQuery(".svg-container").css("display", "none");
+                            jQuery(".jsb-active").css("background-color", "#D3F56A");
+                            jQuery(".jsb-active-2").css("background-color", "transparent");
+                            jQuery(".jsb-active-3").css("background-color", "transparent");
+                            jQuery(".jsb-active-4").css("background-color", "transparent");
                         }
                     );
                 });
@@ -1469,21 +1332,19 @@
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
                             label: 'Revenue',
-                            data: [100, 200, 150, 300, 250, 350, 200, 200, 250, 300, 250, 350],
-                            backgroundColor: '#DA5538',
-                            pointBackgroundColor: '#DA5538',
-                            borderColor: '#DA5538',
-                            borderWidth: 2.5,
+                            data: [100, 200, 150, 300, 250, 400, 350, 500, 450, 600, 550, 700],
+                            backgroundColor: '#1D1D1D',
+                            borderColor: 'blue',
+                            borderWidth: 2,
                             pointRadius: 0,
                             cubicInterpolationMode: 'monotone' // Set interpolation mode to 'monotone' for smooth curves
                         },
                         {
                             label: 'Orders',
                             data: [50, 100, 80, 120, 90, 150, 130, 180, 160, 200, 180, 220],
-                            backgroundColor: '#D3F56A',
-                            pointBackgroundColor: '#D3F56A',
+                            backgroundColor: '#1D1D1D',
                             borderColor: '#D3F56A',
-                            borderWidth: 2.5,
+                            borderWidth: 2,
                             pointRadius: 0,
                             cubicInterpolationMode: 'monotone' // Set interpolation mode to 'monotone' for smooth curves
                         }
@@ -1500,13 +1361,9 @@
                             }
                         },
                         y: {
-                            max: 400,
-                            ticks: {
-                                stepSize: 100,
-                            },
                             grid: {
                                 display: true,
-                                color: '#303030'
+                                color: '#303030' // Set gridline color to red
                             },
                             beginAtZero: true
                         }
@@ -1529,26 +1386,24 @@
                                     return label;
                                 }
                             }
-                        },
-                        legend: {
-                            align: 'end',
-                            labels: {
-                                boxWidth: 5,
-                                boxHeight: 5,
-                                padding: 40,
-                                usePointStyle: true, // Display circular labels
-                            },
                         }
                     }
                 };
-                Chart.defaults.font.size = 20;
 
                 var myChart = new Chart(ctx, {
                     type: 'line',
                     data: data,
-                    options: options,
+                    options: options
                 });
 
+                // Select August and show revenue tooltip
+                myChart.setActiveElements([{
+                    datasetIndex: 0,
+                    index: 7
+                }]);
+                myChart.tooltip.update(true);
             </script>
 
-        @endsection
+        <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backendV2.layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\work\LaravelScript27.06\resources\views/backendV2/dashboard.blade.php ENDPATH**/ ?>
