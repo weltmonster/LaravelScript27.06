@@ -1,7 +1,7 @@
-@extends('backendV2.layouts.default')
-@section('pageTitle', 'Appearance' )
 
-@section('content')
+<?php $__env->startSection('pageTitle', 'Appearance' ); ?>
+
+<?php $__env->startSection('content'); ?>
 
 <style>
     body
@@ -224,13 +224,13 @@ margin-bottom:20px;
 /*}*/
 
 
-/*@media only screen and (max-width: 1920px) {*/
+/*@media  only screen and (max-width: 1920px) {*/
 /*   img.logo-banner-image {*/
 /*    min-width:95%;*/
 /*  }*/
 /*}*/
 
-/*@media only screen and (max-width: 1440px) {*/
+/*@media  only screen and (max-width: 1440px) {*/
 /*   img.logo-banner-image {*/
 /*     max-width: 100%;*/
 /*  width:600px;*/
@@ -242,13 +242,13 @@ margin-bottom:20px;
 /*}*/
 
 
-/*@media only screen and (max-width: 1920px) {*/
+/*@media  only screen and (max-width: 1920px) {*/
 /*   img.logo-banner-image2 {*/
 /*    right:610px;*/
 /*  }*/
 /*}*/
 
-/*@media only screen and (max-width: 1920px) {*/
+/*@media  only screen and (max-width: 1920px) {*/
 /*   img.logo-banner-image3 {*/
 /*    right:580px;*/
 /*  }*/
@@ -258,38 +258,38 @@ img.logo-banner-image {
     width: 100%;
 }
 
-@media only screen and (max-width: 1920px) {
+@media  only screen and (max-width: 1920px) {
    button.btn.btn-primary.update-btn{
     margin-right:20px;
   }
 }
-@media only screen and (max-width: 1440px) {
+@media  only screen and (max-width: 1440px) {
    button.btn.btn-primary.update-btn{
     margin-right:-10px;
   }
 }
 
-@media only screen and (max-width: 1440px) {
+@media  only screen and (max-width: 1440px) {
    img.logo-banner-image2 {
     right:400px;
   }
 }
-@media only screen and (max-width: 1440px) {
+@media  only screen and (max-width: 1440px) {
    img.logo-banner-image3 {
     right:370px;
   }
 }
-@media only screen and (min-width: 1366px) {
+@media  only screen and (min-width: 1366px) {
    img.logo-banner-image3 {
     right:335px;
   }
 }
-@media only screen and (min-width: 1366px) {
+@media  only screen and (min-width: 1366px) {
    img.logo-banner-image2 {
     right:365px;
   }
 }
-@media only screen and (min-width: 1492px) {
+@media  only screen and (min-width: 1492px) {
    img.logo-banner-image2 {
     right: 415px;
   /*position: relative;*/
@@ -463,7 +463,7 @@ border-color:#303030 !important;
     border-radius: 0.5rem;
     padding-top: 26px;
     padding-bottom: 26px;
-    background-image: url("{{url('public/asset/images/bannerimage.png')}}");
+    background-image: url("<?php echo e(url('public/asset/images/bannerimage.png')); ?>");
     background-size: cover;
     margin-bottom: 100px;
 }
@@ -565,52 +565,29 @@ background:#151515 !important;
                     <!-- <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base"> -->
                     <!--begin::Filter-->
                     <!--begin::Menu 1-->
-                    <!-- <a href="{{ route('index-with-pageNumber') }}" class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a> -->
+                    <!-- <a href="<?php echo e(route('index-with-pageNumber')); ?>" class="btn btn-primary"><?php echo e(__('backend/management.tickets.go_to_shop')); ?></a> -->
 
                     <!-- </div> -->
                 </div>
             </div>
 
-            @if(session()->has("success"))
+            <?php if(session()->has("success")): ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success!</strong> {{session()->get("success")}}
+                <strong>Success!</strong> <?php echo e(session()->get("success")); ?>
+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            @endif
+            <?php endif; ?>
 
-            @if(session()->has("error"))
+            <?php if(session()->has("error")): ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Oops!</strong> {{session()->get("error")}}
+                <strong>Oops!</strong> <?php echo e(session()->get("error")); ?>
+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            @endif
+            <?php endif; ?>
 
-          {{--  @if(isset($errors))
-
-            @if(isset(json_decode($errors)->logo[0]))
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Oops!</strong> {{json_decode($errors)->logo[0]}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
-            @elseif(isset(json_decode($errors)->banner[0]))
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Oops!</strong> {{json_decode($errors)->banner[0]}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
-            @elseif(isset(json_decode($errors)->shop_name[0]))
-
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Oops!</strong> {{json_decode($errors)->shop_name[0]}}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
-            @endif
-
-            @endif  --}}
+          
 
 
 
@@ -628,8 +605,8 @@ background:#151515 !important;
                                 </div>
                             </div>
 
-                            <form method="POST" class="kt-form" action="{{ route('backend-management-shop-logo-update2') }}" enctype="multipart/form-data">
-                                @csrf
+                            <form method="POST" class="kt-form" action="<?php echo e(route('backend-management-shop-logo-update2')); ?>" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
 
                             <div class="row" style="display: flex; align-items: center;">
 
@@ -645,13 +622,13 @@ background:#151515 !important;
                                         <div class="kt-section kt-section--first">
                                             <h3>Shop Name</h3>
                                             <!-- <form id="update-shop-name" enctype="multipart/form-data">
-                                                @csrf -->
+                                                <?php echo csrf_field(); ?> -->
                                                 <div class="form-group">
                                                     <label for="faq_edit_question" class="h5 d-none" style="font-weight: bold; float: right;">Shop Name</label>
-                                                    <input type="text" class="form-control files shop-text-field" id="logo" value="{{ $shopName->value ?? ''}}" placeholder="Example Shop Name 1" data-type="logo" name="shop_name" placeholder="" value="" />
-                                                    @if($errors->has('shop_name'))
-                                                        <div class="error">{{ $errors->first('shop_name') }}</div>
-                                                    @endif
+                                                    <input type="text" class="form-control files shop-text-field" id="logo" value="<?php echo e($shopName->value ?? ''); ?>" placeholder="Example Shop Name 1" data-type="logo" name="shop_name" placeholder="" value="" />
+                                                    <?php if($errors->has('shop_name')): ?>
+                                                        <div class="error"><?php echo e($errors->first('shop_name')); ?></div>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <div>
                                                     <span>
@@ -673,13 +650,13 @@ background:#151515 !important;
                                         <div class="kt-section kt-section--first">
                                             <h3>Shop Currency</h3>
                                             <!-- <form id="update-shop-currency" enctype="multipart/form-data">
-                                                @csrf -->
+                                                <?php echo csrf_field(); ?> -->
                                                 <div class="form-group">
                                                     <label for="faq_edit_question" class="h5 d-none" style="font-weight: bold; float: right;">Shop Currency</label>
                                                     <select name="currency" aria-label="Select a Currency" data-control="select2" data-placeholder="Select a currency.." class="form-select form-select-solid form-select-lg form-control shop-select-field">
-                                                        <option {{ $shopCurrency->value == 'dollar' ? 'selected': '' }} data-kt-flag="flags/united-states.svg" value="dollar">
+                                                        <option <?php echo e($shopCurrency->value == 'dollar' ? 'selected': ''); ?> data-kt-flag="flags/united-states.svg" value="dollar">
                                                             <b>USD</b>&nbsp;-&nbsp;dollar</option>
-                                                        <option {{ $shopCurrency->value == 'euro' ? 'selected': '' }} data-kt-flag="flags/united-kingdom.svg" value="euro">
+                                                        <option <?php echo e($shopCurrency->value == 'euro' ? 'selected': ''); ?> data-kt-flag="flags/united-kingdom.svg" value="euro">
                                                             <b>EUR</b>&nbsp;-&nbsp;euro</option>
                                                     </select>
                                                 </div>
@@ -710,11 +687,11 @@ background:#151515 !important;
                                             <h3>Add a banner to your shop</h3>
                                            <button type="submit" class="btn btn-primary upload">Upload Banner</button>
                                         </div>
-                                        <img src="{{url('public/asset/images/uploadicon.png')}}" style="position:absolute; right: 0; bottom: 0; cursor: pointer;" onclick="openBannerBgModal()" />
+                                        <img src="<?php echo e(url('public/asset/images/uploadicon.png')); ?>" style="position:absolute; right: 0; bottom: 0; cursor: pointer;" onclick="openBannerBgModal()" />
                                         <input id="bg-banner-input"  accept="image/*" type="file" name="upload-bg-banner" onchange="changeBannerBg(event)" hidden />
                                         <div class="container-profile">
-                                            <img id="imgBannerMark" src="{{url('public/asset/images/profilethumb.png')}}" class="logo-banner-image2" style="overflow: hidden; border-radius: 50%; width: 150px; height: 150px; object-fit: cover;">                
-                                            <img src="{{url('public/asset/images/uploadicon.png')}}"class="logo-banner-image3" style="cursor:pointer;" onclick="openBannerMarkModal()">
+                                            <img id="imgBannerMark" src="<?php echo e(url('public/asset/images/profilethumb.png')); ?>" class="logo-banner-image2" style="overflow: hidden; border-radius: 50%; width: 150px; height: 150px; object-fit: cover;">                
+                                            <img src="<?php echo e(url('public/asset/images/uploadicon.png')); ?>"class="logo-banner-image3" style="cursor:pointer;" onclick="openBannerMarkModal()">
                                             <input id="mark-banner-input"  accept="image/*" type="file" name="upload-mark-banner" onchange="changeBannerMark(event)" hidden />
                                         </div>
                                         
@@ -751,13 +728,14 @@ background:#151515 !important;
                                         
                                         <div class="form-check form-switch">
 
-                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="marquee_status" @foreach($marque as $value) @for($i=0;$i <=1 ;$i++) @if($value->status == 1)
-                                            {{'checked'}}
-                                            @else
+                                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" name="marquee_status" <?php $__currentLoopData = $marque; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <?php for($i=0;$i <=1 ;$i++): ?> <?php if($value->status == 1): ?>
+                                            <?php echo e('checked'); ?>
 
-                                            @endif
-                                            @endfor
-                                            @endforeach
+                                            <?php else: ?>
+
+                                            <?php endif; ?>
+                                            <?php endfor; ?>
+                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             >
                                             <div class="spinner-border spinner-border-sm marqueLoader d-none" role="status"></div>
                                             <label class="form-check-label flexSwitchCheckCheckedText text-success" for="flexSwitchCheckChecked"></label>
@@ -911,7 +889,7 @@ background:#151515 !important;
         <p style="font-size: 15px;">Are you sure you want to delete banner?</p>
       </div>
       <div class="modal-footer">
-        <a href="{{route('deleteImg',['name'=>'banner'])}}"  class="btn btn-primary">Yes</a>
+        <a href="<?php echo e(route('deleteImg',['name'=>'banner'])); ?>"  class="btn btn-primary">Yes</a>
         <button type="button" class="btn btn-secondary close" data-dismiss="modal">No</button>
       </div>
     </div>
@@ -930,7 +908,7 @@ background:#151515 !important;
                 <p style="font-size: 15px;">Are you sure you want to delete Logo?</p>
             </div>
             <div class="modal-footer">
-                <a href="{{route('deleteImg',['name'=>'logo'])}}" class="btn btn-primary">Yes</a>
+                <a href="<?php echo e(route('deleteImg',['name'=>'logo'])); ?>" class="btn btn-primary">Yes</a>
                 <button type="button" class="btn btn-secondary close" data-dismiss="modal">No</button>
             </div>
         </div>
@@ -939,10 +917,10 @@ background:#151515 !important;
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('page_scripts')
+<?php $__env->startSection('page_scripts'); ?>
 <script>
    $('.banner_delete').on('click',function(){
     // console.log('done');
@@ -1013,8 +991,8 @@ background:#151515 !important;
 
         // Send Request & Set Marquee Status like true,false
 
-        $.post("{{url('marqueStatus')}}", {
-            "_token": "{{ csrf_token() }}", // Set CSRF token
+        $.post("<?php echo e(url('marqueStatus')); ?>", {
+            "_token": "<?php echo e(csrf_token()); ?>", // Set CSRF token
             beforeSend: setupBeforeAction, // Call Before function
             "status": e.target.checked // Status true,false
         }).then((response) => {
@@ -1053,7 +1031,7 @@ background:#151515 !important;
             var formData = new FormData(this);
 
             $.ajax({
-                url: "{{route('backend-management-shop-logo-update')}}",
+                url: "<?php echo e(route('backend-management-shop-logo-update')); ?>",
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -1101,7 +1079,7 @@ background:#151515 !important;
             var formData = new FormData(this);
 
             $.ajax({
-                url: "{{route('backend-management-shop-logo-update')}}",
+                url: "<?php echo e(route('backend-management-shop-logo-update')); ?>",
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -1148,7 +1126,7 @@ background:#151515 !important;
             var formData = new FormData(this);
 
             $.ajax({
-                url: "{{route('backend-management-shop-logo-update')}}",
+                url: "<?php echo e(route('backend-management-shop-logo-update')); ?>",
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -1196,7 +1174,7 @@ background:#151515 !important;
             var formData = new FormData(this);
 
             $.ajax({
-                url: "{{route('backend-management-shop-logo-update')}}",
+                url: "<?php echo e(route('backend-management-shop-logo-update')); ?>",
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -1277,8 +1255,8 @@ background:#151515 !important;
 
      function editMarque(id){
 
-            $.get("{{url('getMarquee')}}",{
-                "_token":"{{csrf_token()}}",
+            $.get("<?php echo e(url('getMarquee')); ?>",{
+                "_token":"<?php echo e(csrf_token()); ?>",
                 "id":id,
                 before:marqueeBeforeFunction
             }).then((response)=>{
@@ -1300,8 +1278,8 @@ background:#151515 !important;
 
     function updateMarquee(){
 
-        $.post("{{url('updateMarquee')}}",{
-                "_token":"{{csrf_token()}}",
+        $.post("<?php echo e(url('updateMarquee')); ?>",{
+                "_token":"<?php echo e(csrf_token()); ?>",
                 "id": $("#marquee_id").val(),
                 "marqueeText": $("#marqueeText").val(),
                 before:marqueeUpdateBeforeFunction
@@ -1325,8 +1303,8 @@ background:#151515 !important;
     }
 
     function deleteMarque(id){
-        $.post("{{url('deleteMarquee')}}",{
-                "_token":"{{csrf_token()}}",
+        $.post("<?php echo e(url('deleteMarquee')); ?>",{
+                "_token":"<?php echo e(csrf_token()); ?>",
             "id":id,
             before:marqueeBeforeFunction
         }).then((response)=>{
@@ -1339,8 +1317,8 @@ background:#151515 !important;
 
     function addMarquee(){
 
-        $.post("{{url('addMarquee')}}",{
-                "_token":"{{csrf_token()}}",
+        $.post("<?php echo e(url('addMarquee')); ?>",{
+                "_token":"<?php echo e(csrf_token()); ?>",
                 "marqueeText": $("#addmarqueeText").val(),
         }).then((response)=>{
             if(response.status === true){
@@ -1353,4 +1331,6 @@ background:#151515 !important;
 
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backendV2.layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\TASKS\2023-06-27(Laravel)\LaravelScript27.06\resources\views/backendV2/shop/shoplogo.blade.php ENDPATH**/ ?>
