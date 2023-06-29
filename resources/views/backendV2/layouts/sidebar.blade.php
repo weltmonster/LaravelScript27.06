@@ -90,9 +90,6 @@ div#kt_aside_menu span.menu-link {
 div#kt_aside_menu {
     padding-top: 40px !important;
 }
-div#kt_aside_menu_wrapper {
-    height: 500px !important;
-}
 .d-flex.flex-stack.side_footer {
     padding: 11px 0px;
 }

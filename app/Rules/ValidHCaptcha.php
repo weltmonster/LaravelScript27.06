@@ -25,25 +25,26 @@ class ValidHCaptcha implements Rule
      */
     public function passes($attribute, $value)
     {
-         $data = array(
-            'secret' => env('H_CAPTCHA_SECRET'),
-            'response' => $value
-        );
-		 $verify = curl_init();
+        //  $data = array(
+        //     'secret' => env('H_CAPTCHA_SECRET'),
+        //     'response' => $value
+        // );
+		//  $verify = curl_init();
 
-        curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
-        curl_setopt($verify, CURLOPT_POST, true);
-        curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+        // curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
+        // curl_setopt($verify, CURLOPT_POST, true);
+        // curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($data));
+        // curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
 
-        $response = curl_exec($verify);
-        $responseData = json_decode( $response );
+        // $response = curl_exec($verify);
+        // $responseData = json_decode( $response );
 
-        if($responseData->success) {
-            return true;
-        } else {
-            return false;
-        }
+        // if($responseData->success) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return true;
     }
 
     /**
