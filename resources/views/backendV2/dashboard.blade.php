@@ -120,6 +120,11 @@ span.value {
     background-color: #D3F56A;
     font-size: 20px;
 }
+
+.offer_block button:hover {
+    background-color: #fff;
+}
+
 .offer_block p {
     font-size: 20px;
 }
@@ -156,6 +161,7 @@ img.user_img {
 .card_main_1 {
     border-radius: 15px 0px 0px 15px;
     overflow: hidden;
+    position: relative;
 }
 
 /*.card_main_1.card*/
@@ -180,6 +186,18 @@ color: #1D1D1D !important;
 .card_main_1 span.view_stastics
 {
 color:#607916 !important;
+}
+
+.card .card-body #polygon1 {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+}
+
+.card .card-body #polygon2 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 .card_main_1 span.view_stastics svg
@@ -335,6 +353,11 @@ line-height: 37px;
 color:#fff;
 }
 
+#more_arrow:hover {
+    color: #D3F56A;
+
+}
+
 .row.search-bar{
 align-items: center;
 }
@@ -452,7 +475,7 @@ display:block;
 color:#fff;
 text-align:center;
 margin-top:150px;
-margin-left:80px;
+margin-left:100px;
 position:absolute;
 font-family: 'Inter';
 font-style: normal;
@@ -627,6 +650,8 @@ color: #FFFFFF;
                             <!--end::Title-->
                             <!--begin::Chart-->
                          <div class="main_view text-dark fs-3x me-2 sal-card-desc">$825,491.73</div>
+                         <img id="polygon1" src="{{url('public/asset/images/polygon1.svg')}}">
+                         <img id="polygon2" src="{{url('public/asset/images/polygon1.svg')}}">
                             <!-- <div class="mixed-widget-13-chart" style="height: 100px"></div> -->
                        
                             <!--end::Chart-->
@@ -782,7 +807,7 @@ color: #FFFFFF;
             </ul>    
             </div>
             <div>
-                <a href="#">More<img src="{{url('public/asset/images/arrow.svg')}}"></a>        
+                <a href="#" id="more_arrow">More<img src="{{url('public/asset/images/arrow.svg')}}"></a>        
             </div>
             </div>
             
