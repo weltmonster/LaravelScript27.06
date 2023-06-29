@@ -764,15 +764,15 @@ background:#151515 !important;
                                         </div>
                                     </div>
                                     <button class="btn btn-sm btn-primary" id="svg-button" data-bs-toggle="modal" data-bs-target="#addMarquee"><svg width="15" height="15" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 10.0565V7.86522H7.78924V0H10.0897V7.86522H18V10.0565H10.0897V18H7.78924V10.0565H0Z" fill="#4B4B4B"/>
-</svg>
-</button>
+                                    <path d="M0 10.0565V7.86522H7.78924V0H10.0897V7.86522H18V10.0565H10.0897V18H7.78924V10.0565H0Z" fill="#4B4B4B"/>
+                                    </svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <div class="hrborder" style="margin-top:25px"></div>
                     </div>
-                    <!-- <div class="ticket-table" style="color: white; font-size: 16px;">
+                    <div class="ticket-table" style="color: white; font-size: 16px;">
                         <table style="text-align: left;">
                             <tbody style="display:table; width: 100%">
                                 <tr style="margin-bottom: 10px;">
@@ -803,10 +803,10 @@ background:#151515 !important;
                             </tbody>
                         
                         </table>
-                    </div> -->
-                    <div class="col-12 record_not_found">
-                        <p style="margin: 0;">No Records Found!</p>
                     </div>
+                    <!-- <div class="col-12 record_not_found">
+                        <p style="margin: 0;">No Records Found!</p>
+                    </div> -->
                 </div>
 
 
