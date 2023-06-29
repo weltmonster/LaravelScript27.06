@@ -1,5 +1,5 @@
 @extends('backendV2.layouts.default')
-@section('pageTitle', __('backend/management.tickets.categories.title') )
+@section('pageTitle', __('Tickets Categories') )
 
 @section('content')
 @section('shopButton')
@@ -50,7 +50,14 @@
 h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
     font-size: 38px !important;
     font-weight: 400;
+    color: #fff !important;
 }
+
+body#kt_body {
+background: #151515;
+}
+
+
     /*:root a.btn.btn-primary {*/
     /*    background-color: #D3F56A !important;*/
     /*    color: #172C00 !important;*/
@@ -102,7 +109,7 @@ td.eddlt-icon a:first-child {
 /*-------footer start---------*/
 .table-footer {
     margin-top: 15px;
-    background-color: #1e1e2d !important;
+    background-color: #1d1d1d !important;
     border-radius: 10px !important;
     display: flex;
     justify-content: space-between;
@@ -144,6 +151,9 @@ span.page-number.active {
         }
         .card .card-body {
         padding-right: 0px !important;
+       }
+       .card .card-header .card-title h2 {
+        color: #fff;
        }
        th:last-child {
        padding-left: 186px;
@@ -230,7 +240,7 @@ a.btn.btn-wide.btn-bold.btn-primary.btn-upper {
                             <!--   class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a>-->
                                <a href="{{ route('backend-management-ticket-category-add') }}"
                        class="btn btn-wide btn-bold btn-primary btn-upper"
-                       style="margin-bottom:15px">{{ __('backend/main.add') }}</a>
+                       style="margin-bottom:15px">{{ __('Add New') }}</a>
 
                         </div>
                     </div>

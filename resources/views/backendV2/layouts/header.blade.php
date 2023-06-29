@@ -66,6 +66,7 @@
     
     h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
     font-size: 38px !important;
+    color: #fff;
 }
     /*-------------------------------------------------------------------------*/
     @media (max-width: 1440px){

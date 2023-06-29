@@ -1,5 +1,5 @@
 @extends('backendV2.layouts.default')
-@section('pageTitle', __('backend/management.tickets.title') )
+@section('pageTitle', __('Tickets') )
 
 @section('content')
 
@@ -48,7 +48,7 @@ table {
 }
 [data-theme=dark]    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1920px;
-    background: black !important;
+    /* background: black !important; */
 }
 [data-theme=dark] div#kt_wrapper {
     background: black !important;
@@ -96,10 +96,23 @@ span.page-number.active {
     text-align: center;
     align-items: center;
 }
+
+body#kt_body {
+background: #151515;
+}
+
 h1.d-flex.flex-column.text-dark.fw-bold.my-0.fs-1 {
     font-size: 38px !important;
+    color: #fff !important;
     font-weight: 600;
 }
+
+h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
+  font-size: 38px !important;
+  color: #fff !important;
+}
+
+
 h1 p {
     margin: 0px 0px 0px 15px !important;
 }
@@ -186,7 +199,9 @@ h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
     font-size: 38px !important;
     font-weight: 400;
 }
-
+.card .card-header .card-title h2 {
+    color: #fff !important;
+}
 
 
 @media only screen and (max-width: 1440px) {
@@ -204,8 +219,6 @@ tr td a svg {
 p {
     margin: 0px !important;
 }
-
-
     
     /*-----------------management/tickets/-------------------*/
 

@@ -19,7 +19,13 @@
         [data-theme=dark] body {
         background-color: #151515;
 }
-        
+
+
+h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
+  font-size: 38px !important;
+  color: #fff !important;
+}
+
       [data-theme=dark].container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     max-width: 1920px;
 }
@@ -59,6 +65,7 @@ p {
     border-radius: 10px;
     width: 400px !important;
     height: 40px;
+    background-color: #1d1d1d;
 }
 [data-theme=dark]:root .Search-btn input.form-control.form-control-solid.w-250px.ps-14{
     background-color: #1d1d1d;
@@ -83,7 +90,7 @@ p {
 [data-theme=dark]:root .card-header.order-header {
     border-bottom: 1px solid #303030 !important;
 }
-:root .table th, :root .table td {
+:root .table th {
     font-family: 'Inter';
     font-weight: 400 !important;
     font-style: normal;
@@ -91,6 +98,15 @@ p {
     font-size: 19px !important;
     padding: 5px 0px !important;
     color: #7D7D7D;
+}
+:root .table td {
+    font-family: 'Inter';
+    font-weight: 400 !important;
+    font-style: normal;
+    line-height: 23px;
+    font-size: 19px !important;
+    padding: 5px 0px !important;
+    color: #fff;
 }
 :root .text-end a.btn.btn-light.btn-active-light-primary.btn-sm {
     background-color: black !important;
@@ -127,6 +143,7 @@ div#kt_content {
     font-weight: 600;
     font-size: 28px;
     line-height: 34px;
+    color: #fff;
 }
 .table-footer {
     margin-top: 15px;
@@ -210,7 +227,7 @@ span.page-number.active {
                 <div class="card-header border-0 pt-6 order-header">
                     <!--begin::Card title-->
                     <div class="card-title">
-                        <div class="card-heading"> <h2>Indvidual Orders </h2></div>
+                        <div class="card-heading"> <h2>Individual Orders </h2></div>
                         <!--begin::Search-->
                         <div class="d-flex align-items-center position-relative my-1 Search-btn">
                             <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
@@ -266,7 +283,7 @@ span.page-number.active {
                                                type="checkbox"/>
                                     </div>
                                 </td>
-                                <th scope="row">{{ $order->id }}</th>
+                                <td scope="row">{{ $order->id }}</th>
                                 <td>{{ $order->name }}</td>
                                 <td>
                                     {{ $order->getUser()->username }}

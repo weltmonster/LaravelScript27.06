@@ -35,7 +35,9 @@
             float: right;
             margin-left: 49px;
         }
-
+        body#kt_body {
+        background: #151515;
+        }
         html:not([data-theme=dark]) {
             --kt-aside-bg-color: #232f3e;
         }
@@ -59,7 +61,7 @@
 
         .btn.btn-primary:hover:not(.btn-active),
         .btn.btn-light-primary:hover {
-            background-color: #232f3e85 !important;
+            background-color: #fff !important;
         }
 
         .text-muted:hover {
