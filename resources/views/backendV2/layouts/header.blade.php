@@ -1,118 +1,125 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
-    .beforeElement {
-        z-index: 99;
-        position: relative;
+.beforeElement {
+    z-index: 99;
+    position: relative;
+}
+
+.beforeElement:before {
+    content: "";
+    width: 0px;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    border-left: dashed;
+    z-index: 1;
+    left: 50%;
+    color: #80808082;
+    border-width: 1px;
+}
+
+.noMessage {
+    padding: 0;
+    margin: 0 !important;
+    text-align: center;
+    color: gray !important;
+    font-weight: 400;
+}
+.notification {
+    background-color: #1d1d1d;
+}
+
+.menu.menu-sub.menu-sub-dropdown {
+    background-color: #1d1d1d;
+}
+
+.profile_say {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 14px;
+}
+
+:root p.uname {
+    margin-bottom: 0px;
+}
+
+.d-flex.align-items-center.ms-3.ms-lg-4.bloc_gap {
+    gap: 10px;
+    margin-right: 14px;
+}
+
+
+@media (min-width: 1400px) {
+    #kt_wrapper {
+        padding-right: 0px !important;
     }
+}
 
-    .beforeElement:before {
-        content: "";
-        width: 0px;
-        height: 100%;
-        position: absolute;
-        top: 100%;
-        border-left: dashed;
-        z-index: 1;
-        left: 50%;
-        color: #80808082;
-        border-width: 1px;
-    }
+.notif {
+    width: 50vw;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    border-radius: 0;
+}
 
-    .noMessage {
-        padding: 0;
-        margin: 0 !important;
-        text-align: center;
-        color: gray !important;
-        font-weight: 400;
-    }
-
-    .profile_say {
-        display: flex;
-        align-items: center;
-        font-size: 18px;
-        gap: 14px;
-    }
-
-    :root p.uname {
-        margin-bottom: 0px;
-    }
-
-    .d-flex.align-items-center.ms-3.ms-lg-4.bloc_gap {
-        gap: 10px;
-        margin-right: 14px;
-    }
+.custom-modal.fade .modal-dialog {
+    transform: none;
+}
 
 
-    @media (min-width: 1400px) {
-        #kt_wrapper {
-            padding-right: 0px !important;
-        }
-    }
+div#kt_header_container {
+    max-width: 1920px;
+}
 
-    .notif {
-        width: 50vw;
-        position: fixed;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        height: 100vh;
-        border-radius: 0;
-    }
+h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
+    font-size: 38px !important;
+}
 
-    .custom-modal.fade .modal-dialog {
-        transform: none;
-    }
+/*-------------------------------------------------------------------------*/
+@media (max-width: 1440px) {}
 
+.text-dark {
+    color: var(--kt-text-dark) !important;
+    font-size: 1.5rem !important;
+    align-items: center !important;
+}
 
-    div#kt_header_container {
-        max-width: 1920px;
-    }
-
-    h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
-        font-size: 38px !important;
-    }
-
-    /*-------------------------------------------------------------------------*/
-    @media (max-width: 1440px) {}
-
-    .text-dark {
-        color: var(--kt-text-dark) !important;
-        font-size: 1.5rem !important;
-        align-items: center !important;
-    }
-
-    /*p.uname {*/
-    /*    display: none;*/
-    /*}*/
+/*p.uname {*/
+/*    display: none;*/
+/*}*/
 
 
-    :root a.btn.btn-primary {
-        background-color: #D3F56A !important;
-        color: #172C00 !important;
-        font-weight: 500 !important;
-        font-size: 20px;
-        line-height: 16px !important;
-        padding: 20px 20px !important;
-    }
+:root a.btn.btn-primary {
+    background-color: #D3F56A !important;
+    color: #172C00 !important;
+    font-weight: 500 !important;
+    font-size: 20px;
+    line-height: 16px !important;
+    padding: 20px 20px !important;
+}
 
-    :root .page-title.d-flex.flex-column.align-items-start.justify-content-center.flex-wrap.me-lg-2.pb-5.pb-lg-0 h1 {
-        flex-direction: row !important;
-        text-align: center !important;
-        align-items: center !important;
-    }
-    
+:root .page-title.d-flex.flex-column.align-items-start.justify-content-center.flex-wrap.me-lg-2.pb-5.pb-lg-0 h1 {
+    flex-direction: row !important;
+    text-align: center !important;
+    align-items: center !important;
+}
+}
 </style>
 @php
-    $name = Auth::user()->name;
+$name = Auth::user()->name;
 @endphp
-<div id="kt_header" class="header container-xxl">
+<div id="kt_header" class="header">
     <!--begin::Container-->
-    <div class="d-flex flex-stack flex-grow-1 gap-1" id="kt_header_container">
+    <div class="container d-flex flex-stack  gap-1" id="kt_header_container">
         <!--begin::Page title-->
         <div class="page-title d-flex align-items-start justify-content-center flex-wrap me-lg-2 pb-5 pb-lg-0"
-            data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#"',
-            lg: ' #kt_header_container' }">
+            data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#"', lg: '
+            #kt_header_container'}">
             <!--begin::Heading-->
             <h1 class="d-flex text-dark fw-bold my-0 fs-1">@yield('pageTitle')@yield('shopButton')
                 <!-- <small class="text-muted fs-6 fw-semibold ms-1 pt-1">You’ve got 24 New Sales</small> -->
@@ -126,8 +133,7 @@
             <div class="btn btn-icon btn-active-icon-primary" id="kt_aside_toggle">
                 <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                 <span class="svg-icon svg-icon-1 mt-1">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
                             fill="currentColor" />
                         <path opacity="0.3"
@@ -182,10 +188,10 @@
                         <span class="svg-icon svg-icon-2 svg-icon-lg-1 me-0">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
-                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
-                                    rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor" />
-                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
-                                    transform="rotate(45 7.41422 6)" fill="currentColor" />
+                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                    transform="rotate(-45 6 17.3137)" fill="currentColor" />
+                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                    fill="currentColor" />
                             </svg>
                         </span>
                         <!--end::Svg Icon-->
@@ -290,8 +296,7 @@
                                     <div class="symbol symbol-40px me-4">
                                         <span class="symbol-label bg-light">
                                             <img class="w-20px h-20px"
-                                                src="adminV2/assets/media/svg/brand-logos/volicity-9.svg"
-                                                alt="" />
+                                                src="adminV2/assets/media/svg/brand-logos/volicity-9.svg" alt="" />
                                         </span>
                                     </div>
                                     <!--end::Symbol-->
@@ -386,19 +391,17 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen005.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3"
                                                         d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM12.5 18C12.5 17.4 12.6 17.5 12 17.5H8.5C7.9 17.5 8 17.4 8 18C8 18.6 7.9 18.5 8.5 18.5L12 18C12.6 18 12.5 18.6 12.5 18ZM16.5 13C16.5 12.4 16.6 12.5 16 12.5H8.5C7.9 12.5 8 12.4 8 13C8 13.6 7.9 13.5 8.5 13.5H15.5C16.1 13.5 16.5 13.6 16.5 13ZM12.5 8C12.5 7.4 12.6 7.5 12 7.5H8C7.4 7.5 7.5 7.4 7.5 8C7.5 8.6 7.4 8.5 8 8.5H12C12.6 8.5 12.5 8.6 12.5 8Z"
                                                         fill="currentColor" />
-                                                    <rect x="7" y="17" width="6"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="7" y="12" width="10"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="7" y="7" width="6"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z"
+                                                    <rect x="7" y="17" width="6" height="2" rx="1"
                                                         fill="currentColor" />
+                                                    <rect x="7" y="12" width="10" height="2" rx="1"
+                                                        fill="currentColor" />
+                                                    <rect x="7" y="7" width="6" height="2" rx="1" fill="currentColor" />
+                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -420,17 +423,16 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="8" y="9" width="3"
-                                                        height="10" rx="1.5" fill="currentColor" />
-                                                    <rect opacity="0.5" x="13" y="5"
-                                                        width="3" height="14" rx="1.5"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <rect x="8" y="9" width="3" height="10" rx="1.5"
                                                         fill="currentColor" />
-                                                    <rect x="18" y="11" width="3"
-                                                        height="8" rx="1.5" fill="currentColor" />
-                                                    <rect x="3" y="13" width="3"
-                                                        height="6" rx="1.5" fill="currentColor" />
+                                                    <rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5"
+                                                        fill="currentColor" />
+                                                    <rect x="18" y="11" width="3" height="8" rx="1.5"
+                                                        fill="currentColor" />
+                                                    <rect x="3" y="13" width="3" height="6" rx="1.5"
+                                                        fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -452,15 +454,15 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com012.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3"
                                                         d="M20 3H4C2.89543 3 2 3.89543 2 5V16C2 17.1046 2.89543 18 4 18H4.5C5.05228 18 5.5 18.4477 5.5 19V21.5052C5.5 22.1441 6.21212 22.5253 6.74376 22.1708L11.4885 19.0077C12.4741 18.3506 13.6321 18 14.8167 18H20C21.1046 18 22 17.1046 22 16V5C22 3.89543 21.1046 3 20 3Z"
                                                         fill="currentColor" />
-                                                    <rect x="6" y="12" width="7"
-                                                        height="2" rx="1" fill="currentColor" />
-                                                    <rect x="6" y="7" width="12"
-                                                        height="2" rx="1" fill="currentColor" />
+                                                    <rect x="6" y="12" width="7" height="2" rx="1"
+                                                        fill="currentColor" />
+                                                    <rect x="6" y="7" width="12" height="2" rx="1"
+                                                        fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -482,16 +484,15 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com006.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="18" height="18" viewBox="0 0 18 18"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3"
                                                         d="M16.5 9C16.5 13.125 13.125 16.5 9 16.5C4.875 16.5 1.5 13.125 1.5 9C1.5 4.875 4.875 1.5 9 1.5C13.125 1.5 16.5 4.875 16.5 9Z"
                                                         fill="currentColor" />
                                                     <path
                                                         d="M9 16.5C10.95 16.5 12.75 15.75 14.025 14.55C13.425 12.675 11.4 11.25 9 11.25C6.6 11.25 4.57499 12.675 3.97499 14.55C5.24999 15.75 7.05 16.5 9 16.5Z"
                                                         fill="currentColor" />
-                                                    <rect x="7" y="6" width="4"
-                                                        height="4" rx="2" fill="currentColor" />
+                                                    <rect x="7" y="6" width="4" height="4" rx="2" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -567,16 +568,14 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/electronics/elc004.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M2 16C2 16.6 2.4 17 3 17H21C21.6 17 22 16.6 22 16V15H2V16Z"
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M2 16C2 16.6 2.4 17 3 17H21C21.6 17 22 16.6 22 16V15H2V16Z"
                                                         fill="currentColor" />
                                                     <path opacity="0.3"
                                                         d="M21 3H3C2.4 3 2 3.4 2 4V15H22V4C22 3.4 21.6 3 21 3Z"
                                                         fill="currentColor" />
-                                                    <path opacity="0.3" d="M15 17H9V20H15V17Z"
-                                                        fill="currentColor" />
+                                                    <path opacity="0.3" d="M15 17H9V20H15V17Z" fill="currentColor" />
                                                 </svg>
                                             </span>
                                             <!--end::Svg Icon-->
@@ -585,8 +584,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">BoomApp by
                                             Keenthemes</a>
                                         <span class="fs-7 text-muted fw-semibold">#45789</span>
                                     </div>
@@ -600,8 +598,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra001.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3"
                                                         d="M14 3V21H10V3C10 2.4 10.4 2 11 2H13C13.6 2 14 2.4 14 3ZM7 14H5C4.4 14 4 14.4 4 15V21H8V15C8 14.4 7.6 14 7 14Z"
                                                         fill="currentColor" />
@@ -616,8 +614,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Kept API
                                             Project Meeting</a>
                                         <span class="fs-7 text-muted fw-semibold">#84050</span>
                                     </div>
@@ -631,8 +628,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra006.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M13 5.91517C15.8 6.41517 18 8.81519 18 11.8152C18 12.5152 17.9 13.2152 17.6 13.9152L20.1 15.3152C20.6 15.6152 21.4 15.4152 21.6 14.8152C21.9 13.9152 22.1 12.9152 22.1 11.8152C22.1 7.01519 18.8 3.11521 14.3 2.01521C13.7 1.91521 13.1 2.31521 13.1 3.01521V5.91517H13Z"
                                                         fill="currentColor" />
@@ -647,8 +644,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"KPI
                                             Monitoring App Launch</a>
                                         <span class="fs-7 text-muted fw-semibold">#84250</span>
                                     </div>
@@ -662,8 +658,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra002.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z"
                                                         fill="currentColor" />
                                                     <path
@@ -677,8 +673,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Project
                                             Reference FAQ</a>
                                         <span class="fs-7 text-muted fw-semibold">#67945</span>
                                     </div>
@@ -692,8 +687,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/communication/com010.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z"
                                                         fill="currentColor" />
@@ -708,8 +703,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"FitPro
                                             App Development</a>
                                         <span class="fs-7 text-muted fw-semibold">#84250</span>
                                     </div>
@@ -723,8 +717,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/finance/fin001.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M20 19.725V18.725C20 18.125 19.6 17.725 19 17.725H5C4.4 17.725 4 18.125 4 18.725V19.725H3C2.4 19.725 2 20.125 2 20.725V21.725H22V20.725C22 20.125 21.6 19.725 21 19.725H20Z"
                                                         fill="currentColor" />
@@ -739,8 +733,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">Shopix
                                             Mobile App</a>
                                         <span class="fs-7 text-muted fw-semibold">#45690</span>
                                     </div>
@@ -754,8 +747,8 @@
                                         <span class="symbol-label bg-light">
                                             <!--begin::Svg Icon | path: icons/duotune/graphs/gra002.svg-->
                                             <span class="svg-icon svg-icon-2 svg-icon-primary">
-                                                <svg width="24" height="24" viewBox="0 0 24 24"
-                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
                                                     <path opacity="0.3" d="M20 8L12.5 5L5 14V19H20V8Z"
                                                         fill="currentColor" />
                                                     <path
@@ -769,8 +762,7 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="d-flex flex-column">
-                                        <a href="#"
-                                            class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-semibold">"Landing
                                             UI Design" Launch</a>
                                         <span class="fs-7 text-muted fw-semibold">#24005</span>
                                     </div>
@@ -793,9 +785,8 @@
                                             d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z"
                                             fill="currentColor" />
                                         <path d="M20 8L14 2V6C14 7.10457 14.8954 8 16 8H20Z" fill="currentColor" />
-                                        <rect x="13.6993" y="13.6656" width="4.42828" height="1.73089"
-                                            rx="0.865447" transform="rotate(45 13.6993 13.6656)"
-                                            fill="currentColor" />
+                                        <rect x="13.6993" y="13.6656" width="4.42828" height="1.73089" rx="0.865447"
+                                            transform="rotate(45 13.6993 13.6656)" fill="currentColor" />
                                         <path
                                             d="M15 12C15 14.2 13.2 16 11 16C8.8 16 7 14.2 7 12C7 9.8 8.8 8 11 8C13.2 8 15 9.8 15 12ZM11 9.6C9.68 9.6 8.6 10.68 8.6 12C8.6 13.32 9.68 14.4 11 14.4C12.32 14.4 13.4 13.32 13.4 12C13.4 10.68 12.32 9.6 11 9.6Z"
                                             fill="currentColor" />
@@ -831,8 +822,7 @@
                             <div class="nav-group nav-group-fluid">
                                 <!--begin::Option-->
                                 <label>
-                                    <input type="radio" class="btn-check" name="type" value="has"
-                                        checked="checked" />
+                                    <input type="radio" class="btn-check" name="type" value="has" checked="checked" />
                                     <span class="btn btn-sm btn-color-muted btn-active btn-active-primary">All</span>
                                 </label>
                                 <!--end::Option-->
@@ -863,9 +853,8 @@
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="mb-5">
-                            <input type="text" name="assignedto"
-                                class="form-control form-control-sm form-control-solid" placeholder="Assigned to"
-                                value="" />
+                            <input type="text" name="assignedto" class="form-control form-control-sm form-control-solid"
+                                placeholder="Assigned to" value="" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
@@ -979,8 +968,7 @@
                         <div class="py-4 border-bottom">
                             <label
                                 class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
-                                <span
-                                    class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
+                                <span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
                                 <input class="form-check-input" type="checkbox" value="1" checked="checked" />
                             </label>
                         </div>
@@ -1011,9 +999,8 @@
             <!-- <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='/admin/shop/logo'">Logo / Banner</button> -->
             <div class="d-flex align-items-center ms-3 ms-lg-4 bloc_gap">
                 <!--begin::Drawer toggle-->
-                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px p-2"><svg
-                        width="24" height="24" viewBox="0 0 32 32" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px p-2"><svg width="24"
+                        height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M14.6667 25.3333C20.5577 25.3333 25.3333 20.5577 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333Z"
                             stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
@@ -1021,399 +1008,281 @@
                             stroke-linejoin="round" />
                     </svg>
                 </div>
-                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px"
-                    id="kt_activities_toggle" style="position: relative;">
-                    <!--begin::Svg Icon | path: icons/duotune/general/gen007.svg-->
+                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-50px h-50px p-0 m-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <!--<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+                        <!--    <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="currentColor" />-->
+                        <!--</svg>-->
+                        <svg width="50" height="50" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M8 10.667C8 8.54526 8.84286 6.51043 10.3431 5.01014C11.8434 3.50985 13.8783 2.66699 16 2.66699C18.1217 2.66699 20.1566 3.50985 21.6569 5.01014C23.1571 6.51043 24 8.54526 24 10.667C24 20.0003 28 22.667 28 22.667H4C4 22.667 8 20.0003 8 10.667Z"
+                                stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M13.7334 28C13.9566 28.4059 14.2847 28.7445 14.6834 28.9803C15.0821 29.216 15.5368 29.3404 16.0001 29.3404C16.4633 29.3404 16.918 29.216 17.3167 28.9803C17.7155 28.7445 18.0436 28.4059 18.2667 28"
+                                stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="21.5" cy="8.5" r="7.5" fill="#DA5538" />
+                        </svg>
 
-                    <!----show notifications orders and users---->
-                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        id="unread-data" onclick="readNotification()">
-                        <a href="#" class="notification">
-                            <span
-                                style="vertical-align: inherit; margin-top: -13px; margin-left: 11px; color:red; position: absolute;">{{ Session::put('read', App\Models\Notification::count()) }}
-                                <!-- <span id="unsetread">{{ Session::get('read') }} </span> -->
-                                <!-- <span id="unsetread"><span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span></span> -->
-
-                            </span>
-
-                            <?php $notification = DB::select("SELECT * FROM lv_notifications where readed = 'false' ORDER BY created_at DESC");
-                            $unreadNotification = 0; ?>
-                            <?php $data = DB::select("SELECT * FROM lv_users_tickets where read_status = '0' ORDER BY created_at DESC");
-                            $notifications = array_merge($data, $notification);
-                            if (!empty($notifications)) {
-                                function sortFunction($a, $b)
-                                {
-                                    return strtotime($a->created_at) - strtotime($b->created_at);
-                                }
-                                usort($notifications, 'sortFunction');
-                                $notifications = array_reverse($notifications);
-                            }
-                            ?>
-
-                            @if ($notification)
-                                @foreach ($notification as $value)
-                                    @if ($value->readed != 'true')
-                                        <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
-
-                            @if ($data)
-                                @foreach ($data as $value)
-                                    @if ($value->read_status != true)
-                                        <?php $unreadNotification++; ?>
-                                    @endif
-                                @endforeach
-                            @endif
-
-                            @if ($unreadNotification > 0)
-                                <span
-                                    class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink notificationBlink"></span>
-                            @endif
-
-
-
-                        </a>
-
-                        <!----end notifications orders and users---->
-
-
-                        <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M8 10.667C8 8.54526 8.84286 6.51043 10.3431 5.01014C11.8434 3.50985 13.8783 2.66699 16 2.66699C18.1217 2.66699 20.1566 3.50985 21.6569 5.01014C23.1571 6.51043 24 8.54526 24 10.667C24 20.0003 28 22.667 28 22.667H4C4 22.667 8 20.0003 8 10.667Z"
-                                    stroke="white" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path
-                                    d="M13.7334 28C13.9566 28.4059 14.2847 28.7445 14.6834 28.9803C15.0821 29.216 15.5368 29.3404 16.0001 29.3404C16.4633 29.3404 16.918 29.216 17.3167 28.9803C17.7155 28.7445 18.0436 28.4059 18.2667 28"
-                                    stroke="white" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <circle cx="21.5" cy="8.5" r="7.5" fill="#DA5538" />
-                            </svg>
-
-                        </span>
-                        <!--end::Svg Icon-->
+                    </span>
                 </div>
+                <!--begin::Menu 1-->
+                <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true"
+                    id="kt-toolbar-filter">
+                    <!--begin::Header-->
+                    <div class="px-7 py-5">
+                        <div class="fs-4 text-white fw-bold">Filter Options</div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Content-->
+                    <div class="px-7 py-5">
+                        <!--begin::Input group-->
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="mb-10">
+                            <!--begin::Label-->
+                            <label class="form-label fs-5 fw-semibold mb-3">Status:</label>
+                            <!--end::Label-->
+                            <!--begin::Options-->
+                            <div class="d-flex flex-column flex-wrap fw-semibold"
+                                data-kt-customer-table-filter="payment_type">
+                                <!--begin::Option-->
+                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
+                                    <input class="form-check-input" type="radio" name="status" value="all"
+                                        checked="checked" />
+                                    <span class="form-check-label text-gray-600">All</span>
+                                </label>
+                                <!--end::Option-->
+                                <!--begin::Option-->
+                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3 me-5">
+                                    <input class="form-check-input" type="radio" name="status" value="closed" />
+                                    <span
+                                        class="form-check-label text-gray-600">{{ __('backend/management.tickets.status_data.closed') }}</span>
+                                </label>
+                                <!--end::Option-->
+                                <!--begin::Option-->
+                                <label class="form-check form-check-sm form-check-custom form-check-solid mb-3">
+                                    <input class="form-check-input" type="radio" name="status" value="answered" />
+                                    <span
+                                        class="form-check-label text-gray-600">{{ __('backend/management.tickets.edit.answered') }}</span>
+                                </label>
+                                <!--end::Option-->
+                                <!--begin::Option-->
+                                <label class="form-check form-check-sm form-check-custom form-check-solid">
+                                    <input class="form-check-input" type="radio" name="status" value="open" />
+                                    <span
+                                        class="form-check-label text-gray-600">{{ __('backend/management.tickets.status_data.open') }}</span>
+                                </label>
+                                <!--end::Option-->
+                            </div>
+                            <!--end::Options-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Actions-->
+                        <div class="d-flex justify-content-end">
+                            <button type="reset" class="btn btn-light btn-active-light-primary me-2"
+                                data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset">Reset</button>
+                            <button type="submit" class="btn btn-primary" data-kt-menu-dismiss="true"
+                                data-kt-customer-table-filter="filter" onclick="changeFilter()">Apply</button>
+                        </div>
+                        <!--end::Actions-->
+                    </div>
+                </div>
+                <!--<div class="search-bar"> <form action="#">-->
+                <!--     <input type="text" placeholder="Search.." name="search">-->
+                <!--    </form>-->
+                <!-- </div>-->
+                <!--<a href="{{ route('index-with-pageNumber') }}" class="btn btn-primary">{{ __('backend/management.tickets.go_to_shop') }}</a>-->
+
                 <!--end::Drawer toggle-->
             </div>
             <div class="profile_say">
 
                 <img src="{{ url('public/asset/images/user.png') }}" class="user_img">
 
-                <p class="uname">{{ $name }} <svg width="19" height="20" viewBox="0 0 19 20"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                <p class="uname">{{ $name }} <svg width="19" height="20" viewBox="0 0 19 20" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M9.50001 13.167C9.81667 13.167 10.1333 13.0087 10.2917 12.8503L15.5167 7.62533C15.9917 7.15033 15.9917 6.35866 15.5167 5.88366C15.0417 5.40866 14.25 5.40866 13.775 5.88366L9.50001 10.1587L5.22501 5.88366C4.75001 5.40866 3.95834 5.40866 3.48334 5.88366C3.00834 6.35866 3.00834 7.15032 3.48334 7.62532L8.55001 12.692C8.86667 13.0087 9.18334 13.167 9.50001 13.167Z"
                             fill="#7D7D7D" />
                     </svg>
                 <p>
             </div>
-            <div class="custom-modal modal fade" id="exampleModal" tabindex="-1"
-                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content notif">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body hideItemDataWithCondition"
-                            style="padding-top: 25px !important; text-align: center;overflow: scroll;">
 
-                            @if (count($notifications) > 0 || count($data) > 0)
-                                @foreach ($notifications as $item)
-                                    <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;">
-                                        <!--begin::Timeline line-->
-                                        <div class="timeline-line "></div>
-                                        <!--end::Timeline line-->
-
-                                        <!--begin::Timeline icon-->
-                                        <div class="timeline-icon symbol symbol-circle symbol-40px">
-                                            <div class="symbol-label bg-light beforeElement">
-                                                @if (!empty($item->type))
-                                                    @if ($item->type == 'order')
-                                                        <i class="fa fa-store text-gray-400"
-                                                            style="font-size: 1.2rem;"></i>
-                                                    @else
-                                                        <i class="fa fa-message text-gray-400"
-                                                            style="font-size: 1.2rem;"></i>
-                                                    @endif
-                                                @else
-                                                    <i class="fa fa-message text-gray-400"
-                                                        style="font-size: 1.2rem;"></i>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <!--end::Timeline icon-->
-
-                                        <!--begin::Timeline content-->
-                                        <div class="timeline-content mt-n1">
-                                            <!--begin::Timeline heading-->
-                                            <div class="pe-3 mb-5">
-                                                <!--begin::Title-->
-                                                <div class="fs-5 fw-semibold mb-2" style="color:#232f3e">
-                                                    @if (!empty($item->type))
-                                                        @if ($item->type == 'order')
-                                                            <p>New Order ID #{{ $item->extra_data }}</p>
-                                                        @else
-                                                            <p>{{ $item->type }}</p>
-                                                        @endif
-                                                    @else
-                                                        <a style="color:#232f3e"
-                                                            href="{{ url('admin/management/tickets/page/1') }}">{{ $item->subject }}</a>
-                                                    @endif
-                                                </div>
-                                                <!--end::Title-->
-                                                <!--begin::Description-->
-                                                <div class="d-flex align-items-center mt-1 fs-6">
-                                                    <!--begin::Info-->
-                                                    <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div>
-                                                    <!--end::Info-->
-                                                </div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Timeline heading-->
-                                        </div>
-
-                                        <!--end::Timeline content-->
-                                    </div>
-                                @endforeach
-                                {{--                              @foreach ($data as $item) --}}
-
-                                {{--                                  <div class="timeline-item" style="display: flex; gap: 20px; height: 80px;"> --}}
-                                {{--                                      <!--begin::Timeline line--> --}}
-                                {{--                                      <div class="timeline-line "></div> --}}
-                                {{--                                      <!--end::Timeline line--> --}}
-
-                                {{--                                      <!--begin::Timeline icon--> --}}
-                                {{--                                      <div class="timeline-icon symbol symbol-circle symbol-40px"> --}}
-                                {{--                                          <div class="symbol-label bg-light beforeElement"> --}}
-                                {{--                                              <i class="fa fa-message text-gray-400" style="font-size: 1.2rem;"></i> --}}
-                                {{--                                          </div> --}}
-                                {{--                                      </div> --}}
-                                {{--                                      <!--end::Timeline icon--> --}}
-
-                                {{--                                      <!--begin::Timeline content--> --}}
-                                {{--                                      <div class="timeline-content mt-n1"> --}}
-                                {{--                                          <!--begin::Timeline heading--> --}}
-                                {{--                                          <div class="pe-3 mb-5"> --}}
-                                {{--                                              <!--begin::Title--> --}}
-                                {{--                                              <div class="fs-5 fw-semibold mb-2"> --}}
-                                {{--                                                  <a style="color:#232f3e" href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Title--> --}}
-
-                                {{--                                                  <!--begin::Description--> --}}
-                                {{--                                              <div class="d-flex align-items-center mt-1 fs-6"> --}}
-                                {{--                                                  <!--begin::Info--> --}}
-                                {{--                                                  <div class="text-muted me-2 fs-7">{{ $item->created_at }}</div> --}}
-                                {{--                                                  <!--end::Info--> --}}
-                                {{--                                              </div> --}}
-                                {{--                                              <!--end::Description--> --}}
-                                {{--                                          </div> --}}
-                                {{--                                          <!--end::Timeline heading--> --}}
-                                {{--                                      </div> --}}
-
-                                {{--                                      <!--end::Timeline content--> --}}
-                                {{--                                  </div> --}}
-
-                                {{--                              @endforeach --}}
-                            @else
-                                <div class="fs-5 fw-semibold mb-2">No new Notification</div>
-                                {{-- <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" style="max-width: 180px;"> --}}
-
-                            @endif
-                        </div>
+            {{--            <div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
+            {{--                <div class="modal-dialog">--}}
+            {{--                    <div class="modal-content">--}}
+            {{--                        <div class="modal-header">--}}
+            {{--                            <h5 class="modal-title" id="exampleModalLabel">Ticket Notification</h5>--}}
+            {{--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
+            {{--                        </div>--}}
+            {{--                        <div class="modal-body" style="text-align: center;">--}}
+            {{--                            <?php $data = DB::select("SELECT * FROM lv_users_tickets ORDER BY id DESC"); ?>--}}
+            {{--                            <table class="table hideTableDatawithCondition" style="text-align: center;">--}}
 
 
-                        <div class="">
-                            <div class="card-footer py-5 text-center" id="kt_activities_footer">
-                                <button class="btn btn-bg-body text-primary" onclick="clearNotificationByButton()">
-                                    Clear all notifications <i
-                                        class="ki-duotone ki-arrow-right fs-3 text-primary"><span
-                                            class="path1"></span><span class="path2"></span></i> </button>
-                            </div>
-                            {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger clearNotificationBtn"  @if (count($notification) > 0) onclick="clearNotification()" @else {{'disabled'}}  @endif >Clear</button> --}}
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{--                                @if(count($data) > 0)--}}
 
-            {{--            <div class="modal fade" id="exampleModals" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-            {{--                <div class="modal-dialog"> --}}
-            {{--                    <div class="modal-content"> --}}
-            {{--                        <div class="modal-header"> --}}
-            {{--                            <h5 class="modal-title" id="exampleModalLabel">Ticket Notification</h5> --}}
-            {{--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-            {{--                        </div> --}}
-            {{--                        <div class="modal-body" style="text-align: center;"> --}}
-            {{--                            <?php $data = DB::select('SELECT * FROM lv_users_tickets ORDER BY id DESC'); ?> --}}
-            {{--                            <table class="table hideTableDatawithCondition" style="text-align: center;"> --}}
+            {{--                                    <thead class="removeMessage">--}}
+            {{--                                        <tr>--}}
+            {{--                                            <th style="width: 33%">ID</th>--}}
+            {{--                                            <th style="width: 33%">Subject</th>--}}
+            {{--                                            <th style="width: auto">Create Date</th>--}}
+            {{--                                        </tr>--}}
+            {{--                                    </thead>--}}
+            {{--                                    <tbody class="removeMessage">--}}
 
+            {{--                                        @foreach($data as $item)--}}
+            {{--                                        <tr>--}}
+            {{--                                            <td>{{ $item->id }}</td>--}}
+            {{--                                            <td><a href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a>
+            </td>--}}
+            {{--                                            <td>{{ $item->created_at }}</td>--}}
+            {{--                                        </tr>--}}
+            {{--                                        @endforeach--}}
+            {{--                                    </tbody>--}}
 
-            {{--                                @if (count($data) > 0) --}}
+            {{--                                @else--}}
 
-            {{--                                    <thead class="removeMessage"> --}}
-            {{--                                        <tr> --}}
-            {{--                                            <th style="width: 33%">ID</th> --}}
-            {{--                                            <th style="width: 33%">Subject</th> --}}
-            {{--                                            <th style="width: auto">Create Date</th> --}}
-            {{--                                        </tr> --}}
-            {{--                                    </thead> --}}
-            {{--                                    <tbody class="removeMessage"> --}}
+            {{--                                    <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">--}}
 
-            {{--                                        @foreach ($data as $item) --}}
-            {{--                                        <tr> --}}
-            {{--                                            <td>{{ $item->id }}</td> --}}
-            {{--                                            <td><a href="{{url('admin/management/tickets/page/1')}}">{{ $item->subject }}</a></td> --}}
-            {{--                                            <td>{{ $item->created_at }}</td> --}}
-            {{--                                        </tr> --}}
-            {{--                                        @endforeach --}}
-            {{--                                    </tbody> --}}
+            {{--                                @endif--}}
 
-            {{--                                @else --}}
+            {{--                            </table>--}}
+            {{--                        </div>--}}
 
-            {{--                                    <img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;"> --}}
-
-            {{--                                @endif --}}
-
-            {{--                            </table> --}}
-            {{--                        </div> --}}
-
-            {{--                        <div class="modal-footer"> --}}
-            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-            {{--                            <button type="button" class="btn btn-danger clearMessageBtn"  @if (count($data) > 0) onclick="clearMessage()" @else {{'disabled'}}  @endif > Clear</button> --}}
-            {{--                        </div> --}}
-            {{--                    </div> --}}
-            {{--                </div> --}}
-            {{--            </div> --}}
+            {{--                        <div class="modal-footer">--}}
+            {{--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--}}
+            {{--                            <button type="button" class="btn btn-danger clearMessageBtn"  @if(count($data) > 0) onclick="clearMessage()" @else {{'disabled'}}
+            @endif > Clear</button>--}}
+            {{--                        </div>--}}
+            {{--                    </div>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
 
             <!--end::Activities-->
             <!--begin::Chat-->
 
-            {{--            <div class="d-flex align-items-center ms-3 ms-lg-4"> --}}
-            {{--                <!--begin::Drawer wrapper--> --}}
-            {{--                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary btn-outline w-40px h-40px position-relative" id="kt_drawer_chat_toggle"> --}}
-            {{--                    <!--begin::Svg Icon | path: icons/duotune/communication/com003.svg--> --}}
-            {{--                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModals" onclick="readMessage()"> --}}
-            {{--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> --}}
-            {{--                            <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" /> --}}
-            {{--                            <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" /> --}}
-            {{--                        </svg> --}}
-            {{--                    </span> --}}
-            {{--                    <!--end::Svg Icon--> --}}
-            {{--                    <!--begin::Bullet--> --}}
+            {{--            <div class="d-flex align-items-center ms-3 ms-lg-4">--}}
+            {{--                <!--begin::Drawer wrapper-->--}}
+            {{--                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary btn-outline w-40px h-40px position-relative" id="kt_drawer_chat_toggle">--}}
+            {{--                    <!--begin::Svg Icon | path: icons/duotune/communication/com003.svg-->--}}
+            {{--                    <span class="svg-icon svg-icon-1" data-bs-toggle="modal" data-bs-target="#exampleModals" onclick="readMessage()">--}}
+            {{--                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+            {{--                            <path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />--}}
+            {{--                            <path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor" />--}}
+            {{--                        </svg>--}}
+            {{--                    </span>--}}
+            {{--                    <!--end::Svg Icon-->--}}
+            {{--                    <!--begin::Bullet-->--}}
             {{--                    <?php $data = DB::select("SELECT * FROM lv_users_tickets ORDER BY id DESC");--}}
-{{--                    $unreadMsg = 0; ?> --}}
-            {{--                    @if ($data) --}}
-            {{--                    @foreach ($data as $value) --}}
-            {{--                    @if ($value->read_status != '1') --}}
-            {{--                    <?php $unreadMsg++; ?> --}}
-            {{--                    @endif --}}
-            {{--                    @endforeach --}}
-            {{--                    @endif --}}
+            {{--                    $unreadMsg = 0; ?>--}}
+            {{--                    @if($data)--}}
+            {{--                    @foreach($data as $value)--}}
+            {{--                    @if($value->read_status != "1")--}}
+            {{--                    <?php $unreadMsg++; ?>--}}
+            {{--                    @endif--}}
+            {{--                    @endforeach--}}
+            {{--                    @endif--}}
 
-            {{--                    @if ($unreadMsg > 0) --}}
-            {{--                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink messageBlink"></span> --}}
-            {{--                    @endif --}}
+            {{--                    @if($unreadMsg > 0)--}}
+            {{--                    <span class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink messageBlink"></span>--}}
+            {{--                    @endif--}}
 
 
-            {{--                    <!--end::Bullet--> --}}
-            {{--                </div> --}}
-            {{--                <!--end::Drawer wrapper--> --}}
-            {{--            </div> --}}
+            {{--                    <!--end::Bullet-->--}}
+            {{--                </div>--}}
+            {{--                <!--end::Drawer wrapper-->--}}
+            {{--            </div>--}}
 
             <script>
-                function readMessage() {
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
-                    }).then((response) => {
-                        if (response.status === true) {
-                            $(".messageBlink").remove();
-                        }
-                    });
-                }
+            function readMessage() {
+                $.post("{{url('readMessage')}}", {
+                    "_token": "{{ csrf_token() }}"
+                }).then((response) => {
+                    if (response.status === true) {
+                        $(".messageBlink").remove();
+                    }
+                });
+            }
 
-                function readNotification() {
-                    $.post("{{ url('readNotification') }}", {
-                        "_token": "{{ csrf_token() }}"
-                    }).then((response) => {
-                        if (response.status === true) {
-                            $(".notificationBlink").remove();
-                        }
-                    });
-                    $.post("{{ url('readMessage') }}", {
-                        "_token": "{{ csrf_token() }}"
-                    }).then((response) => {
-                        if (response.status === true) {
-                            $(".notificationBlink").remove();
-                        }
-                    });
-                }
+            function readNotification() {
+                $.post("{{url('readNotification')}}", {
+                    "_token": "{{ csrf_token() }}"
+                }).then((response) => {
+                    if (response.status === true) {
+                        $(".notificationBlink").remove();
+                    }
+                });
+                $.post("{{url('readMessage')}}", {
+                    "_token": "{{ csrf_token() }}"
+                }).then((response) => {
+                    if (response.status === true) {
+                        $(".notificationBlink").remove();
+                    }
+                });
+            }
 
-                function clearMessage() {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.post("{{ url('clearMessage') }}", {
-                                "_token": "{{ csrf_token() }}"
-                            }).then((response) => {
-                                if (response.status === true) {
-                                    $(".clearMessageBtn").prop("disabled", true);
-                                    let image =
-                                        `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
-                                    $(".hideTableDatawithCondition").html(image);
-                                    Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
-                                } else {
-                                    Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
-                                }
-                            });
-                        }
-                    });
-                }
+            function clearMessage() {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post("{{url('clearMessage')}}", {
+                            "_token": "{{ csrf_token() }}"
+                        }).then((response) => {
+                            if (response.status === true) {
+                                $(".clearMessageBtn").prop("disabled", true);
+                                let image =
+                                    `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
+                                $(".hideTableDatawithCondition").html(image);
+                                Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
+                            } else {
+                                Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
+                            }
+                        });
+                    }
+                });
+            }
 
-                function clearNotification() {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            $.post("{{ url('clearNotification') }}", {
-                                "_token": "{{ csrf_token() }}"
-                            }).then((response) => {
-                                if (response.status === true) {
-                                    $(".clearNotificationBtn").prop("disabled", true);
-                                    let image =
-                                        `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
-                                    $(".hideItemDataWithCondition").html(image);
-                                    Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
-                                } else {
-                                    Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
-                                }
-                            });
-                        }
-                    });
-                }
+            function clearNotification() {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.post("{{url('clearNotification')}}", {
+                            "_token": "{{ csrf_token() }}"
+                        }).then((response) => {
+                            if (response.status === true) {
+                                $(".clearNotificationBtn").prop("disabled", true);
+                                let image =
+                                    `<img src="../../../assets/newdesign/assets/img/creator/notification_1.gif" alt="" class="image" style="max-width: 180px;">`;
+                                $(".hideItemDataWithCondition").html(image);
+                                Swal.fire('Deleted!', `${response.message}`, `${response.condition}`);
+                            } else {
+                                Swal.fire('Oops!', `${response.message}`, `${response.condition}`);
+                            }
+                        });
+                    }
+                });
+            }
 
-                function clearNotificationByButton() {
-                    $('.hideItemDataWithCondition').html('<div class="fs-5 fw-semibold mb-2">No new Notification</div>')
-                }
+            function clearNotificationByButton() {
+                $('.hideItemDataWithCondition').html('<div class="fs-5 fw-semibold mb-2">No new Notification</div>')
+            }
             </script>
             <!--end::Chat-->
             <!--begin::Theme mode-->
@@ -1519,8 +1388,7 @@
                 id="kt_sidebar_toggler">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod001.svg-->
                 <span class="svg-icon svg-icon-2x">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path opacity="0.3"
                             d="M22.1 11.5V12.6C22.1 13.2 21.7 13.6 21.2 13.7L19.9 13.9C19.7 14.7 19.4 15.5 18.9 16.2L19.7 17.2999C20 17.6999 20 18.3999 19.6 18.7999L18.8 19.6C18.4 20 17.8 20 17.3 19.7L16.2 18.9C15.5 19.3 14.7 19.7 13.9 19.9L13.7 21.2C13.6 21.7 13.1 22.1 12.6 22.1H11.5C10.9 22.1 10.5 21.7 10.4 21.2L10.2 19.9C9.4 19.7 8.6 19.4 7.9 18.9L6.8 19.7C6.4 20 5.7 20 5.3 19.6L4.5 18.7999C4.1 18.3999 4.1 17.7999 4.4 17.2999L5.2 16.2C4.8 15.5 4.4 14.7 4.2 13.9L2.9 13.7C2.4 13.6 2 13.1 2 12.6V11.5C2 10.9 2.4 10.5 2.9 10.4L4.2 10.2C4.4 9.39995 4.7 8.60002 5.2 7.90002L4.4 6.79993C4.1 6.39993 4.1 5.69993 4.5 5.29993L5.3 4.5C5.7 4.1 6.3 4.10002 6.8 4.40002L7.9 5.19995C8.6 4.79995 9.4 4.39995 10.2 4.19995L10.4 2.90002C10.5 2.40002 11 2 11.5 2H12.6C13.2 2 13.6 2.40002 13.7 2.90002L13.9 4.19995C14.7 4.39995 15.5 4.69995 16.2 5.19995L17.3 4.40002C17.7 4.10002 18.4 4.1 18.8 4.5L19.6 5.29993C20 5.69993 20 6.29993 19.7 6.79993L18.9 7.90002C19.3 8.60002 19.7 9.39995 19.9 10.2L21.2 10.4C21.7 10.5 22.1 11 22.1 11.5ZM12.1 8.59998C10.2 8.59998 8.6 10.2 8.6 12.1C8.6 14 10.2 15.6 12.1 15.6C14 15.6 15.6 14 15.6 12.1C15.6 10.2 14 8.59998 12.1 8.59998Z"
                             fill="currentColor" />
@@ -1542,33 +1410,33 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $("#unread-data").click(function() {
+$(document).ready(function() {
+    $("#unread-data").click(function() {
 
-            document.all.unsetread.innerHTML = '0';
+        document.all.unsetread.innerHTML = '0';
 
-        });
-        $("#kt_drawer_chat_toggle").click(function() {
+    });
+    $("#kt_drawer_chat_toggle").click(function() {
 
-            <
-            !--$("#exampleModals").show();
-            -- >
-            <
-            !--$("#exampleModals").css('opacity', '1');
-            -- >
-            <
-            !--
-        });
+        <
+        !--$("#exampleModals").show();
         -- >
         <
-        !--$(".btn-close").click(function() {
-            -- >
-            <
-            !--$("#exampleModals").hide();
-            -- >
-            <
-            !--
-        });
+        !--$("#exampleModals").css('opacity', '1');
         -- >
+        <
+        !--
     });
+    -- >
+    <
+    !--$(".btn-close").click(function() {
+        -- >
+        <
+        !--$("#exampleModals").hide();
+        -- >
+        <
+        !--
+    });
+    -- >
+});
 </script>
