@@ -23,6 +23,38 @@
     padding-bottom: 0px !important;
 }
 
+.badge-paid {
+    display: inherit;
+    outline-style: solid;
+    border-radius: 14px;
+    padding-inline: 10px;
+    outline-width: 1px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    color: #D3F56A;
+}
+.badge-invalid {
+    display: inherit;
+    outline-style: solid;
+    border-radius: 14px;
+    padding-inline: 10px;
+    outline-width: 1px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    color: #DA5538;
+}
+.badge-pending {
+    display: inherit;
+    outline-style: solid;
+    border-radius: 14px;
+    padding-inline: 10px;
+    outline-width: 1px;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    color: #7D7D7D;
+}
+
+
 .table.table-row-dashed tr {
     border-bottom-width: 0px;
     border-bottom-style: dashed;
