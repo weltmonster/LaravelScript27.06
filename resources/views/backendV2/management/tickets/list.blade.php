@@ -7,13 +7,83 @@
 <p><a href="https://laravel-site.net/shop" class="btn btn-primary">Go to Shop</a></p>
 @endsection
 <style>
+.modal {
+    --bs-modal-width: 40%
+}
+
+.modal.left .modal-dialog {
+    position: fixed;
+    right: 0;
+    margin: auto;
+    width: 1000px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+    -ms-transform: translate3d(0%, 0, 0);
+    -o-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+}
+
+.modal.left .modal-content {
+    height: 100%;
+    overflow-y: auto;
+    color: #fff !important;
+}
+
+/* ----- MODAL STYLE ----- */
+.modal-content {
+    border-radius: 0;
+    border: none;
+    background-color: #151515;
+}
+
+.modal-header {
+    border-bottom-color: #eeeeee;
+    background-color: #fafafa;
+}
+
+.modal-body div .card-selected {
+    padding: 20px;
+    outline: solid;
+    outline-width: 2px;
+    outline-color: #1d1d1d;
+    background-color: #151515 !important;
+}
+
+.modal-body div .card {
+    padding: 20px;
+    outline: solid;
+    outline-width: 2px;
+    outline-color: #1d1d1d;
+}
+
+.modal-body p {
+    color: #7d7d7d;
+}
+
+.modal-body textarea {
+    background-color: #151515;
+}
+
+.modal-body select, .modal-body textarea {
+    border-color: #1d1d1d;
+}
+
+.modal-body select {
+    background-color: #151515;
+}
+
+.modal-body .card-footer {
+    border-top-color: #7d7d7d;
+}
+
+
 .table.gy-5 td,
 .table.gy-5 th {
     padding-top: 5px !important;
     padding-bottom: 5px !important;
 }
 
-.uname {
+.modal .uname {
     color: #fff;
 }
 
@@ -730,8 +800,9 @@ h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
                                 {{helperdateFormat($ticket->created_at)}} {{ $ticket->created_at->format('H:i') }}
                             </td>
                             <td class="lst-icon">
-                                <a href="{{ route('backend-management-ticket-edit', $ticket->id) }}"><svg width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <div class="btn btn-icon btn-color-gray-700 btn-active-color-primary w-40px h-40px p-2"
+                                    data-bs-toggle="modal" data-bs-target="#myModal"><svg width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M11 4H4C3.46957 4 2.96086 4.21071 2.58579 4.58579C2.21071 4.96086 2 5.46957 2 6V20C2 20.5304 2.21071 21.0391 2.58579 21.4142C2.96086 21.7893 3.46957 22 4 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V13"
                                             stroke="#BBBBBB" stroke-width="2" stroke-linecap="round"
@@ -741,7 +812,7 @@ h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
                                             stroke="#BBBBBB" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                </a>
+                                </div>
                                 <a href="{{ route('backend-management-ticket-delete', $ticket->id) }}"><svg width="24"
                                         height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3 6H21" stroke="#BBBBBB" stroke-width="2" stroke-linecap="round"
@@ -757,6 +828,108 @@ h1.d-flex.text-dark.fw-bold.my-0.fs-1 {
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body p-13">
+                            <div class="mb-4">
+                                <h4 class="mb-2 uname">
+                                    <- Edit Ticket</h4>
+                                        <h5 class="text-muted">#2121</h5>
+                            </div>
+                            <div class="form-group">
+                                <label for="faq_edit_question" class="h5 d-none"
+                                    style="font-weight: bold; float: right;">Shop Currency</label>
+                                <div>
+                                    <select aria-label="Select a Currency" class="form-select form-control">
+                                        <option>
+                                            <b>Select</b>
+                                        </option>
+                                        <option>
+                                            <b>EUR</b>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label>Subject Name</label>
+                                <div class="card m-2 card-selected">
+                                    <div class="card-body p-0">
+                                        <p class="text-justify">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer p-0 mt-1">
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <div>Admin</div>
+                                            <div class="d-flex justify-content-between flex-grow-1 ms-1">
+                                                <div>| 11/04/2023 15:45:23</div>
+                                                <div style="color: #7d7d7d;">Category: <span class="text-white">Other coin</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2">
+                                    <div class="card-body p-0">
+                                        <p class="text-justify">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer p-0 mt-1">
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <div>Admin</div>
+                                            <div class="d-flex justify-content-between flex-grow-1 ms-1">
+                                                <div>| 11/04/2023 15:45:23</div>
+                                                <!-- <div style="color: #7d7d7d;">Category: <span class="text-white">Other coin</span></div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card m-2">
+                                    <div class="card-body p-0">
+                                        <p class="text-justify">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                            consequat.
+                                        </p>
+                                    </div>
+                                    <div class="card-footer p-0 mt-1">
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <div>Admin</div>
+                                            <div class="d-flex justify-content-between flex-grow-1 ms-1">
+                                                <div>| 11/04/2023 15:45:23</div>
+                                                <!-- <div style="color: #7d7d7d;">Category: <span class="text-white">Other coin</span></div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="form-group mt-10">
+                                <label>Move Category</label>
+                                <select class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Compose Reply</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-primary">Save Change</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card-body py-4 table-footer">
